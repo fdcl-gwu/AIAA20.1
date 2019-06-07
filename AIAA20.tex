@@ -80,7 +80,7 @@
 \newtheorem{prop}{Proposition}
 \newenvironment{proof}{\paragraph{Proof:}}{\hfill$\square$}
 
-\title{Geometric Formulation of the Dynamics of Monarch Butterfly\\ with the Effects of Abdomen Undulation}
+\title{Geometric Formulation for the Dynamics of Monarch Butterfly with the Effects of Abdomen Undulation}
 
 \author{Madhu Sridhar,\footnote{Graduate Student, Mechanical and Aerospace Engineering, University of Alabama Huntsville, 301 Sparkman Dr, Huntsville AL 35899}
 Chang-kwon Kang\footnote{Assistant Professor, Mechanical and Aerospace Engineering, University of Alabama Huntsville, 301 Sparkman Dr, Huntsville AL 35899}}
@@ -179,13 +179,14 @@ The presented results suggest that the abdomen may have another desirable effect
 
 
 
-\section{Flapping Wing UAV Model}
+\section{Flapping Wing Aerial Vehicle Model for Butterfly}\label{sec:FWAV}
 
-Consider a flapping wing UAV that is composed of a head, a thorax, an abdomen, and two wings attached to the thorax. 
-Here, we assume that the head and the thorax are coagulated into a single rigid body, which is referred to as \textit{body}. 
-We plan to study the motion of the abdomen relative to the thorax in the future. 
-Also, we do not distinguish hindwings from forewings. 
+In this section, we present a flapping wing aerial vehicle model that may characterize the flight of a butterfly.
+It is composed of a head, a thorax, an abdomen, and two wings attached to the thorax via spherical joints. 
+We assume that the head and the thorax are coagulated into a single rigid body, which is referred to as \textit{body}. 
+Also, we assume that hindwings move in unison with forewings.
 
+Here we present a mathematical description for the kinematics of the proposed articulated rigid body model.
 Define an inertial frame $\mathcal{F}_I=\{\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z\}$, where the third axis points downward, and the first two axes span the horizontal plane. 
 This is compatible to the NED (north-east-down) frame common in flight dynamics.
 \nomenclature{$\mathcal{F}_I$}{North-East-Down inertial frame}
@@ -215,11 +216,11 @@ Following the common convention in flight dynamics, the first axis points toward
     \end{center}
     \caption{The inertial frame $\mathcal{F}_I=\{\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z\}$ (black) and the body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue)}\label{fig:FI_FB}
 \end{figure}
-The location of the mass center is given by $x\in\Re^3$ in $\mathcal{F}_I$. 
+The location of the mass center of the body is given by $x\in\Re^3$ in $\mathcal{F}_I$. 
 The attitude of the body is described by $R\in\SO=\{R\in \Re^{3\times 3}\,|\, R^T R = I_{3\times 3},\; \mathrm{det}[R]=1\}$, which represents the linear transformation of a representation of a vector from $\mathcal{F}_B$ to $\mathcal{F}_I$. 
 \nomenclature{$\SO$}{three-dimensional special orthogonal group, $\SO=\{R\in \Re^{3\times 3}\,|\, R^T R = I_{3\times 3},\; \mathrm{det}[R]=1\}$}
 \nomenclature{$\so$}{Lie algebra of $\SO$, $\so=\{S\in \Re^{3\times 3}\,|\, S^T=-S\}$}
-The attitude kinematics is given by
+The attitude kinematics is written as
 \begin{align}
     \dot R = R \hat \Omega,
 \end{align}
@@ -248,7 +249,7 @@ The inverse of the hat map is denoted by the \textit{vee} map, $\vee: \so\righta
 Let $\mathcal{F}_R=\{\mathbf{r}_x,\mathbf{r}_y,\mathbf{r}_z\}$ be the frame fixed to the right wing.
 Its origin is located at the joint of the right wing, or the wing root where the right wing is attached to the thorax. 
 The vector from the origin of $\mathcal{F}_B$ to the origin of $\mathcal{F}_R$ is defined as $\mu_R\in\Re^3$. 
-As it is resolved in $\mathcal{F}_B$ and the body is rigid, $\dot\mu_R=0$.
+As it is resolved in $\mathcal{F}_B$ and the body is rigid, we have $\dot\mu_R=0$.
 The first two axes of $\mathcal{F}_R$ span the plane of the wing, where the first axis points toward the leading edge and the second axis points toward the wing tip. 
 Consequently, the third axis is normal to the wing plane, and it points toward the ventral side when there is no rotation of the right wing.
 \nomenclature{$\mathcal{F}_R$}{frame fixed to the right wing (see Figure~\ref{fig:FR})}
@@ -349,6 +350,13 @@ The Euler-angles are defined as
 \nomenclature{$\theta\in[-\pi,\pi)$}{pitch angle (see Figure \ref{fig:wing_Euler})}
 \nomenclature{$\psi\in[-\pi,\pi)$}{deviation angle (see Figure \ref{fig:wing_Euler})}
 
+As given by~\eqref{eqn:Q_R}, the three-dimensional attitude of the right wing is parameterized by four angles, and as such there is a redundancy in defining the stroke plane. 
+In general, the deviation angle is relatively small for most of insects. 
+In particular, when $\psi_R$ is exactly zero, the stroke plane is defined such that it is spanned by the motion of the wing tip. 
+If the deviation angle is not zero, then the stroke plane can be chose such that the distance between the wing tip and the stroke plane, after integrated over a stroke, is minimized. 
+This will be further discussed in Section \ref{sec:Monarch}.
+
+
 
 The time-derivative of $Q_R$ is given by
 \begin{align}
@@ -426,65 +434,13 @@ Also, we have
     \end{bmatrix}.
 \end{align}
 
-\subsection{Wing Kinematics}
-
-We consider the wing kinematics model presented in~\cite{berman2007energy}.
+\paragraph{Wing Kinematics}
 Let $f\in\Re$ be the frequency of the flapping in $\mathrm{Hz}$.
 Thus, the period of the flapping is $T=\frac{1}{f}$. 
 \nomenclature{$f\in\Re$}{flapping frequency}
 \nomenclature{$T\in\Re$}{flapping period}
-
-The flapping angle is given by a smoothed triangular waveform,
-\begin{align}
-    \phi(t) & = \frac{\phi_m}{\sin^{-1} \phi_K}\sin^{-1}(\phi_K\cos(2\pi f t)) + \phi_0,\label{eqn:phi}
-\end{align}
-where $\phi_m\in\Re$ is the amplitude of flapping, and $\phi_0\in\Re$ is the offset. 
-The parameter $0 < \phi_K \leq 1$ determines the shape of flapping waveform (sinusoidal when $\phi_K\rightarrow 0$; triangular when $\phi_K\rightarrow 1$).
-The initial pitch angle is $\phi(0)=\phi_m+\phi_0$.
-During $0\leq t \leq \frac{T}{2}$, the pitch angle decreases to $\phi(\frac{T}{2}) = -\phi_m+\phi_0$. 
-Therefore, it represents upstroke when $0\leq t \leq \frac{T}{2}$, and it represents downstroke when $\frac{T}{2} \leq t \leq T$.
-
-In~\cite{berman2007energy}, the inner term is given by $\sin(2\pi f t)$, instead of $\cos(2\pi f t)$ as in~\eqref{eqn:phi}. 
-By following the convention of~\cite{bluman2017wing}, we use the cosine.
-This is to ensure that in the subsequent expression of the pitch angle, the pitch angle reversal happens at the end of the downstroke or at the end of upstorke when there is no phase offset ($\theta_a=0$).
-
-\nomenclature{$\phi_m\in[0,\frac{\pi}{2}]$}{flapping amplitude\nomrefeq}
-\nomenclature{$\phi_o\in[\theta_m-\frac{\pi}{2},\frac{\pi}{2}-\theta_m]$}{flapping offset\nomrefeq}
-\nomenclature{$\phi_K\in(0,1)$}{flapping waveform parameter\nomrefeq}
-
-The pitch angle is given by a hyperbolic function,
-\begin{align}
-    \theta(t) = \frac{\theta_m}{\tanh \theta_C} \tanh( \theta_C \sin(2\pi f t + \theta_a)) +\theta_0,
-\end{align}
-where $\theta_m\in\Re$ is the amplitude of pitching, and $\theta_0\in\Re$ is the offset. 
-The parameter $\theta_C\in(0,\infty)$ determines the waveform (sinusoidal when $\theta_C\rightarrow 0$; step function when $\theta_C\rightarrow \infty$).
-The value of $\theta_C$ is related to the duration of the wing pitch reversal. 
-The parameter $\theta_a\in(-\pi,\pi)$ describes the offset in phase (advance rotation for $\theta_a>0$; symmetric rotation for $\theta_a=0$; delayed rotation for $\theta_a<0$).
-\nomenclature{$\theta_m\in[0,\frac{\pi}{2}]$}{pitching amplitude\nomrefeq}
-\nomenclature{$\theta_o\in[\theta_m-\pi,\pi-\theta_m]$}{pitching offset\nomrefeq}
-\nomenclature{$\theta_C\in(0,\infty)$}{pitching waveform parameter\nomrefeq}
-\nomenclature{$\theta_a\in(-\pi,\pi)$}{pitching phase offset\nomrefeq}
-
-Finally, the deviation angle is given by a sinusoidal oscillation,
-\begin{align}
-    \psi(t) = \psi_m \cos(2\pi \psi_N f t + \psi_a) + \psi_0,
-\end{align}
-where $\psi_m\in\Re$ is the amplitude of the deviation, and $\psi_0\in\Re$ is the offset. 
-The parameter $\psi_N$ is either 1 or 2: $\psi_N=1$ corresponds to one oscillation per a flapping period, and $\psi_N=2$ corresponds to a figure-eight motion. 
-The parameter $\psi_a\in(-\pi,\pi)$ describes the offset in phase. 
-See Figure \ref{fig:wing_kinematics} for the trajectories of these angles for selected parameters. 
-\nomenclature{$\psi_m\in\Re$}{deviation amplitude\nomrefeq}
-\nomenclature{$\psi_o\in\Re$}{deviation offset\nomrefeq}
-\nomenclature{$\psi_N\in\{1,2\}$}{deviation oscillation per a flapping\nomrefeq}
-\nomenclature{$\psi_a\in(-\pi,\pi)$}{deviation phase offset\nomrefeq}
-
-\begin{figure}
-    \centerline{
-        \includegraphics[width=0.7\textwidth]{wing_kinematics}
-    }
-    \caption{Wing kinematics when $\phi_m=50^\circ$, $\phi_0=10^\circ$, $\theta_m=45^\circ$, $\theta_0=0$, $\theta_a=0.3$, $\phi_m=10^\circ$, $\phi_0=\phi_a=0$}\label{fig:wing_kinematics} 
-\end{figure}
-
+The variation of the Euler angles over the flapping period is often referred to as wing kinematics, and several models have been presented to construct $(\phi(t),\theta(t),\psi(t))$~\cite{berman2007energy}.
+These can substituted into \eqref{eqn:Q_R} and \eqref{eqn:Q_L} to describe the attitude of the wing as a function of time. 
 
 \subsection{Abdomen}
 
@@ -507,15 +463,12 @@ where $\Omega_A\in\Re^3$ is the angular velocity of the abdomen relative to the 
 \nomenclature{$\Omega_A\in\Re^3$}{the angular velocity of the abdomen relative to $\mathcal{F}_B$ resolved in $\mathcal{F}_R$}
 
 
-
-
-
-
-
-
-\section{Quasi-Steady Aerodynamics}
+\section{Quasi-Steady Aerodynamics}\label{sec:QS}
 
 The quasi-steady assumption implies that the aerodynamic force and moment generated by the flapping wing are equivalent to those for steady motion at the same instantaneous velocity and the angle of attack. 
+In this section, we propose a quasi-steady aerodynamic model for the butterfly flights characterized by relatively slow lapping of large wings. 
+Without relying on the common assumption that the flapping frequency is sufficiently large, an expression for the translational forces and the rotational force is presented.
+This accounts the effects of the translational and rotational motion of the body, and the wind gust in the aerodynamic force.
 
 \subsection{Wing Morphological Parameters}
 
@@ -642,6 +595,9 @@ Therefore, we project the above velocity to the $\mathbf{r}_x$--$\mathbf{r}_z$ p
 \end{align}
 where $I_{3\times 3} - e_2e_2^T= \mathrm{diag}[1,0,1]\in\Re^{3\times 3}$ corresponds to the projection operator. 
 The second term is not affected by the projection as it is already normal to $e_2$.
+When the flapping frequency is sufficiently large, or equivalently $\Omega_R$ is relatively large compared with other terms, it can be simply approximated by $U_R(r) = r\Omega_R\times e_2$.
+But, the flapping frequency of a butterfly is about $10\,\si{Hz}$, and the contribution of the flapping to $U_R$ is comparable to other terms caused by the body velocity. 
+
 \nomenclature{$U(r)\in\Re^3$}{the velocity of the aerodynamic center of the chord $c(r)$ relative to the ambient wind, resolved in the wing fixed frame; this is projected to the $\mathbf{r}_x$--$\mathbf{r}_z$ plane so that the second component is always zero\nomrefeq}
 
 The angle of attack $\alpha_R(r)$ is the angle between the chord line $\pm e_1$ and the above velocity $U_R(r)$. 
@@ -824,10 +780,9 @@ The lift and the drag also generate the moment about the wing root as
 \end{align}
 \nomenclature{$M_L\in\Re^3$}{moment about the wing root caused by the lift and the drag of the left wing, resolved in $\mathcal{F}_L$}
 
-\subsection{Translational Forces for Small Body Velocities}
+\subsection{Approximate Translational Forces for Higher Flapping Frequency}
 
-This above expression requires span-wise integration at every instance to compute the lift and the drag. 
-Here we present an explicit expression for a special case when the linear velocity and the angular velocity of the body and the wind velocity are small. i.e., $\|\dot x\|, \|\Omega\|, \|v_{\mathrm{wind}}\| \ll 1$.  
+While it is not suitable for butterfly, here we present an explicit expression for a special case when the linear velocity and the angular velocity of the body and the wind velocity are small compared with the flapping frequency. i.e., $\|\dot x\|, \|\mu_R\|\|\Omega\|, \|v_{\mathrm{wind}}\| \ll l\|\Omega_R\|$.  
 
 \paragraph{Right Wing}
 
@@ -862,8 +817,8 @@ In~\eqref{eqn:alpha}, this eliminates the dependency of $\alpha$  on $r$ as foll
 In other words, the angle of attack is identical for all the infinitesimal chord in the right wing. 
 Also, from \eqref{eqn:dLR},
 \begin{align}
-    dL_R(r) & = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_1^T (\Omega_R\times e_2) e_3^T (\Omega_R\times e_2) ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
-            & = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (-e_3^T \Omega_R e_1^T \Omega_R ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
+    dL_R(r) %& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_1^T (\Omega_R\times e_2) e_3^T (\Omega_R\times e_2) ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
+            %& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (-e_3^T \Omega_R e_1^T \Omega_R ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
             & = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\|  r^2 dr\nonumber.
 \end{align}
 Consequently, the lift of the right wing is given by
@@ -1065,16 +1020,12 @@ For the left wing, the chord is located at $-r e_2$ in $\mathcal{F}_L$, and cons
 \]
 \nomenclature{$M_\rot\in\Re^3$}{moment about the wing root due to the rotational force, resolved in the wing fixed frame}
 
-\subsection{Rotational Force for Small Body Velocities}
+\subsection{Approximate Rotational Force for Higher Flapping Frequency}
 
 \paragraph{Right Wing}
 
-Under the assumption of small body velocities, we present an expression for the rotational force that does not require a span-wise integration. 
-As discussed above, when $\|\dot x\|,\|\Omega\|, \|v_{\mathrm{wind}}\| \ll 1$, $U_R(r)$ reduces to
-\[
-    U_R(r) = r \Omega_R \times e_2,
-\]
-so that $\alpha,\dot\alpha$ remains fixed span-wise. 
+Similar with the approximate translational forces, we present an explicit expression for the rotational forces when the flapping frequency is sufficiently high. 
+As discussed above under the given assumption, the angle of attack and its time-derivative do not vary span-wise.
 Thus,
 \begin{align*}
     F_{\rot_R} & = \rho C_\rot  \|\Omega_R \times e_2 \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 \int_0^l r c^2(r) dr,
@@ -1105,135 +1056,19 @@ For the left wing,
     M_{\rot_L} &  = -r_\rot e_2 \times F_{\rot_L}.
 \end{align}
 
-\subsection{Numerical Example}
+\section{Dynamics of Flapping Wing Aerial Vehicle for Butterfly}
 
-We evaluate the aerodynamic forces with the following lift/drag coefficient~\cite{sane2002aerodynamic}
-\begin{align*}
-    C_L & = 0.225 + 1.58 \sin( (2.13\alpha^\circ - 7.2) \frac{\pi}{180}),\\
-    C_D & = 1.92 - 1.55 \cos( (2.04 \alpha^\circ - 9.82 ) \frac{\pi}{180}),\\
-    C_\rot &  = \pi(0.75 - \hat x_0),
-\end{align*}
-where $\alpha^\circ = \alpha \frac{180}{\pi}$ is the angle of attack in degrees and $\hat x_0$ is chosen as $\hat x_0=0.5$. 
-
-For both of the left wing and the right wing, parameters for the wing kinematics are chosen as
-\begin{gather*}
-    f=10\,\mathrm{Hz},\quad \beta=0,\quad \phi_M=60^\circ, \quad \phi_K=0.9, \quad \phi_0 = 10^\circ,\\
-    \theta_M = 30^\circ, \quad \theta_C = 4, \quad \theta_0 = 10^\circ,\\
-    \psi_M=30^\circ, \quad \psi_N=1, \quad \psi_a=0,\quad \psi_0=10^\circ.
-\end{gather*}
-Therefore, the motion of the left wing is symmetric to the right wing.
-Three cases are considered for $\phi_a=0$ (symmetric rotation), $\phi_a=0.3$ (advanced rotation), and $\phi_a=-0.3$ (delayed rotation).
-
-The resulting aerodynamic forces are illustrated in Figures \ref{fig:QS_sym}--\ref{fig:QS_dly}, where the subfigures (e) show the aerodynamic forces resolved in the wing-fixed frame. 
-It is shown that the first component of the resultant force is almost zero. 
-Thus, the resultant force is normal to the chord. 
-
-Next, the last subfigures, namely (f) present the aerodynamic forces resolved in $\mathcal{F}_B$. 
-Since $\beta=0$, the first component is the resultant lift normal to the stroke plane. 
-%It is shown that the advanced rotation generates an additional lift from the rotational force at the end of the upstroke and the downstroke. 
-
-
-\begin{figure}[p]
-    \centerline{
-        \subfigure[$\phi,\theta,\psi$]{
-            \includegraphics[width=0.45\textwidth]{QS_sym_E}
-        }
-        \hfill
-        \subfigure[$\alpha$]{
-            \includegraphics[width=0.45\textwidth]{QS_sym_alpha}
-        }
-    }
-    \centerline{
-        \subfigure[$U$]{
-            \includegraphics[width=0.45\textwidth]{QS_sym_U}
-        }
-        \hfill
-        \subfigure[$\dot\alpha \|U\|$]{
-            \includegraphics[width=0.45\textwidth]{QS_sym_U_alpha_dot}
-        }
-    }
-    \centerline{
-        \subfigure[Aerodynamic forces in the wing-fixed frame]{
-            \includegraphics[width=0.45\textwidth]{QS_sym_F_W}
-        }
-        \hfill
-        \subfigure[Aerodynamic forces in the body-fixed frame]{
-            \includegraphics[width=0.45\textwidth]{QS_sym_F_B}
-        }
-    }
-    \caption{Wing Kinematics in~\cite{berman2007energy}: Symmetric rotation}\label{fig:QS_sym}
-\end{figure}
-
-\begin{figure}[p]
-    \centerline{
-        \subfigure[$\phi,\theta,\psi$]{
-            \includegraphics[width=0.45\textwidth]{QS_adv_E}
-        }
-        \hfill
-        \subfigure[$\alpha$]{
-            \includegraphics[width=0.45\textwidth]{QS_adv_alpha}
-        }
-    }
-    \centerline{
-        \subfigure[$U$]{
-            \includegraphics[width=0.45\textwidth]{QS_adv_U}
-        }
-        \hfill
-        \subfigure[$\dot\alpha \|U\|$]{
-            \includegraphics[width=0.45\textwidth]{QS_adv_U_alpha_dot}
-        }
-    }
-    \centerline{
-        \subfigure[Aerodynamic forces in the wing-fixed frame]{
-            \includegraphics[width=0.45\textwidth]{QS_adv_F_W}
-        }
-        \hfill
-        \subfigure[Aerodynamic forces in the body-fixed frame]{
-            \includegraphics[width=0.45\textwidth]{QS_adv_F_B}
-        }
-    }
-    \caption{Wing Kinematics in~\cite{berman2007energy}: Advanced rotation}\label{fig:QS_adv}
-\end{figure}
-
-\begin{figure}[p]
-    \centerline{
-        \subfigure[$\phi,\theta,\psi$]{
-            \includegraphics[width=0.45\textwidth]{QS_dly_E}
-        }
-        \hfill
-        \subfigure[$\alpha$]{
-            \includegraphics[width=0.45\textwidth]{QS_dly_alpha}
-        }
-    }
-    \centerline{
-        \subfigure[$U$]{
-            \includegraphics[width=0.45\textwidth]{QS_dly_U}
-        }
-        \hfill
-        \subfigure[$\dot\alpha \|U\|$]{
-            \includegraphics[width=0.45\textwidth]{QS_dly_U_alpha_dot}
-        }
-    }
-    \centerline{
-        \subfigure[Aerodynamic forces in the wing-fixed frame]{
-            \includegraphics[width=0.45\textwidth]{QS_dly_F_W}
-        }
-        \hfill
-        \subfigure[Aerodynamic forces in the body-fixed frame]{
-            \includegraphics[width=0.45\textwidth]{QS_dly_F_B}
-        }
-    }
-    \caption{Wing Kinematics in~\cite{berman2007energy}: Delayed rotation}\label{fig:QS_dly}
-\end{figure}
-
-\clearpage\newpage
-
-\section{Flapping Wing UAV Dynamics}
+In this section, we construct the equations of motion for the dynamics of the proposed flapping wing aerial vehicle model. 
+To objective is to capture the inertial coupling between the thorax, the abdomen, and the wings such that the dynamics of butterfly is properly represented. 
+It is based on the geometric formulation of the multibody dynamics~\cite{LeeLeo17} to describe the dynamics in an intrinsic, elegant fashion. 
 
 \subsection{Lagrangian Mechanics on a Lie Group}
 
+We first present the Lagrangian mechanics for an arbitrary mechanical system evolving on a Lie group. 
+The Euler--Lagrange equations are developed when the Lagrangian is composed of a kinetic energy with a configuration-dependent inertia and a potential energy.
+This result will be utilized later for the proposed flapping wing aerial vehicle.
+
 Consider a dynamic system evolving on an abstract Lie group $\G$. 
-We develop Euler--Lagrange equations for the arbitrary Lie group $\G$, which are utilized later for the flapping wing UAV. 
 The kinematics equation on $\G$ is given by
 \begin{equation}
     \dot g = g \xi,\label{eqn:dot_g}
@@ -1268,36 +1103,17 @@ We have
                                              & = \braces{ \frac{1}{2}\mathbf{K}_g^*(\xi)\xi - \T^*_e \L_g U(g)} \cdot \chi,
 \end{align*}
 where $\g^*$ is identified with $\g$ with the pairing. 
-Thus, the Euler--Lagrange equations are given by
+Substituting these into~\cite[equation (8.45)]{LeeLeo17}, the Euler--Lagrange equations are given by
 \begin{gather}
     \mathbf{J}_g(\dot \xi) + \mathbf{K}_g(\xi)\xi - \ad^*_\xi \cdot \mathbf{J}_g(\xi)  - \frac{1}{2}\mathbf{K}^*_g(\xi)\xi + \T_e^* \L_g U(g) =0. \label{eqn:EL_G}
 \end{gather}
 
-The total energy is
-\begin{align*}
-    E = \frac{1}{2}\pair{\mathbf{J}_g(\xi), \xi} + U(g).
-\end{align*}
-Its time-derivative is
-\begin{align*}
-    \dot E & = \pair{ \dot{\mathbf{J}}_g(\xi), \xi} + \dot U(g)\\
-           & =  \frac{1}{2}\pair{\dot{\mathbf{J}}_g( \xi),\xi} +
-           \frac{1}{2} \pair{ \mathbf{J}_g(\xi),\dot \xi} 
-           +  \T_e^*\L_g U(g)\cdot \xi\\
-           & = \frac{1}{2}\pair{\mathbf{J}_g(\dot \xi), \xi} + \frac{1}{2}\pair{\mathbf{K}_g(\xi)\xi, \xi} 
-           + \frac{1}{2} \pair{ \mathbf{J}_g(\xi),\dot \xi} 
-           +  \T_e^*\L_g U(g)\cdot \xi\\
-           & = \pair{ - \mathbf{K}_g(\xi)\xi + \ad^*_\xi \cdot \mathbf{J}_g(\xi)  + \frac{1}{2}\mathbf{K}^*_g(\xi)\xi, \xi} + \frac{1}{2}\pair{\mathbf{K}_g(\xi)\xi, \xi} \\
-           & = \pair{-\mathbf{K}_g(\xi)\xi, \xi} + \pair{\mathbf{J}_g(\xi), \ad_\xi\cdot \xi} + \frac{1}{2} \pair{\xi, \mathbf{K}_g(\xi)\xi} + \frac{1}{2}\pair{\mathbf{K}_g(\xi)\xi, \xi}  = 0,
-\end{align*}
-which shows the energy conservation in the absence of external force or moment. 
+\subsection{Lagrangian Mechanics of Flapping Wing Aerial Vehicle}
 
-\subsection{Lagrangian Mechanics of Flapping Wing UAV}
-
-The configuration of the given flapping wing UAV model is described by $g=(x,R,Q_R,Q_L, Q_A)$. 
+The configuration of the given flapping wing vehicle model is described by $g=(x,R,Q_R,Q_L, Q_A)$. 
 Consequently, the configuration space is a Lie group $\G=\Re^3\times \SO^4$. 
 As it is a product of $\Re^3$ and four copies of $\SO$, the Lie algebra is simply $\g = \Re^3 \times \so^4 \simeq \Re^3 \times (\Re^3)^4$.
 The kinematics equation is identical to \eqref{eqn:dot_g} with $\xi = (\dot x, \Omega, \Omega_R, \Omega_L, \Omega_A)\in\g$. 
-We derive the Euler--Lagrange equations for the flapping wing UAV using the preceding results. 
 
 \paragraph{Kinetic Energy} 
 The kinetic energy of the body is given by
@@ -1365,9 +1181,9 @@ From \eqref{eqn:KK}, the derivative of the inertia can be expressed with the fol
 
 
 The total kinetic energy is the sum of the contributions of the body, the wings and the abdomen, as given by
-\[
+\begin{equation}
     T = T_B + T_R + T_L + T_A.
-\]
+\end{equation}
 
 \paragraph{Potential Energy}
 
@@ -1380,9 +1196,9 @@ The gravitational potential energy of $\mathcal{B}_i$ is
     U_i = -m_ig e_3^T (x + R\mu_i + RQ_i \nu_i).
 \]
 The total potential energy is
-\[
+\begin{equation}
     U = U_B + U_R + U_L + U_A.
-\]
+\end{equation}
 The negative derivatives of the potential energy, namely $\mathbf{f}_g\in\Re^{15}$ corresponds to the gravitational force and moment given by
 \begin{align}
     \mathbf{f}_g \triangleq - \T^*_e\L_g U = \begin{bmatrix}
@@ -1444,7 +1260,7 @@ They are given by
 
 \paragraph{Euler--Lagrange Equations}
 
-The inertia tensor for the complete UAV, namely $\mathbf{J}_g(\xi)\in\Re^{15\times 15}$ is written as
+The inertia tensor for the complete flapping wing aerial vehicle, namely $\mathbf{J}_g(\xi)\in\Re^{15\times 15}$ is written as
 \begin{align}
     \mathbf{J}_g(\xi) = \begin{bmatrix}
         m_B I_{3\times 3} + \mathbf{J}_{R_{11}} + \mathbf{J}_{L_{11}} + \mathbf{J}_{A_{11}}
@@ -1505,7 +1321,7 @@ The Euler--Lagrange equation~\eqref{eqn:EL} can be decomposed accordingly as
     \mathbf{J}_{21}\dot \xi_1 + \mathbf{J}_{22}\dot\xi_2 -\ad^*_{\xi_2}\cdot(\mathbf{J}_{21}\xi_1 + \mathbf{J}_{22}\xi_2) + \mathbf{L}_{21}\xi_1 + \mathbf{L}_{22}\xi_2 = \mathbf{f}_{a_2} + \mathbf{f}_{g_2} + \mathbf{f}_{\tau_2},\label{eqn:J22dotxi_2}
 \end{align}
 where the matrices $\mathbf{J}_g$, $\mathbf{L}\in\Re^{15\times 15}$ are decomposed after the first six rows and columns. 
-For example, $\mathbf{J}_11\in\Re^{6\times 6}$ is the first $6\times 6$ diagonal block of $\mathbf{J}_g$, and the remaining parts of the first 6 rows are defined as $\mathbf{J}_{12}\in\Re^{6\times 9}$. 
+For example, $\mathbf{J}_{11}\in\Re^{6\times 6}$ is the first $6\times 6$ diagonal block of $\mathbf{J}_g$, and the remaining parts of the first 6 rows are defined as $\mathbf{J}_{12}\in\Re^{6\times 9}$. 
 We cannot integrate \eqref{eqn:J11dotxi_1} separately, as it is coupled with \eqref{eqn:J22dotxi_2} through the unknown $(\tau_R,\tau_L,\tau_A)$.
 
 From \eqref{eqn:f_tau},
@@ -1533,13 +1349,13 @@ We construct a equation of motion for the position $x$.
 The first block of \eqref{eqn:EL} is written as
 \begin{align}
     m\ddot x + 
-    \sum_{i\in\{R,L,A\}} \big\{ \mathbf{J}_{i_{12}} \dot\Omega + \mathbf{J}_{i_{13}}\dot\Omega_R 
+    \sum_{i\in\{R,L,A\}} \big\{ \mathbf{J}_{i_{12}} \dot\Omega + \mathbf{J}_{i_{13}}\dot\Omega_i 
     + \ \mathbf{K}_{i_{12}}\Omega + \mathbf{K}_{i_{13}}\Omega_i \big\} = R\sum_{i\in\{R,L,A\}} Q_i F_i + mg e_3,\label{eqn:mx_ddot}
 \end{align}
 which can be numerically integrated to construct $(x,\dot x)$. 
-The control torque $(\tau_R,\tau_L,\tau_A)$ can be constructed by \eqref{eqn:J22dotxi_2}.
+The corresponding control torque $(\tau_R,\tau_L,\tau_A)$ can be computed by \eqref{eqn:J22dotxi_2}.
 
-\section{Dynamic Simulation for Monarch Butterfly}
+\section{Dynamic Simulation for Monarch Butterfly}\label{sec:Monarch}
 
 \subsection{Monarch Morphological Parameters}
 
@@ -1556,7 +1372,7 @@ The control torque $(\tau_R,\tau_L,\tau_A)$ can be constructed by \eqref{eqn:J22
     \caption{Monarch wing shape and chord}\label{fig:Monarch_wing}
 \end{figure}
 
-The morphological parameters and the mass distribution of Monarch are determined by an actual butterfly [ref].
+The morphological parameters and the mass distribution of Monarch are determined by an actual butterfly.
 The location of the leading edge and the trailing edge are measured along the span-wise direction, and they are fitted by sixth-order polynomials.  
 The resulting measurements and the fitted curve are illustrated in Figure \ref{fig:Monarch_wing}.
 From the fitted chord, we determine the morphological parameters as summarized in Table \ref{tab:Monarch}.
@@ -1731,8 +1547,8 @@ These are illustrated at Figure \ref{fig:comp_VICON}.
 In general, the downstrokes generate the lift upward, and the upstrokes generate thrust forward,
 while yielding a climbing trajectory with oscillation.
 
-The QS model generates greater lift and thrust, and consequently causing higher climb rate and forward velocity. 
-However, it is consistent with the experimental data in a qualitative sense. 
+The proposed quasi-steady aerodynamic model generates greater lift and thrust, and consequently causing higher climb rate and forward velocity. 
+However, it is consistent with the experimental data in a qualitative manner, thereby validating the proposed model. 
 
 
 \begin{figure}[p]
@@ -1768,14 +1584,21 @@ However, it is consistent with the experimental data in a qualitative sense.
 
 \subsection{Effects of Abdomen}
 
-In Monarch butterfly flights, the abdomen oscillate at the same frequency of the wing flapping angle with the opposite phase,
+It turns out that for Monarch butterfly flights, the abdomen oscillate at the same frequency of the wing flapping angle with the opposite phase,
 i.e., the abdomen rotates downward during the wing upstrokes. 
 
-
-To test the effects of abdomen undulation with the proposed QS model, we simulate the above Monarch model for 50 strokes while fixing the abdomen pitching angle to the averaged value. 
+To test the effects of abdomen undulation with the proposed model, we simulate the above Monarch model for 50 strokes while fixing the abdomen pitching angle to the averaged value. 
 These results are illustrated at Figure \ref{fig:comp_ab}.
 While the discrepancy is not substantial, it is shown that the abdomen undulation slightly increases the climb rate and the forward velocity.  
-Furthermore, an abdomen undulation in the opposite phase reduces those. 
+
+Furthermore, we consider another case when the abdomen undulate in the opposite phase to the measured vales.
+Interestingly, this yields the worst results, where the forward velocity and the climb rate are smaller than the case of fixed abdomen. 
+This suggests that the abdomen undulation has a coupling effect to the translational dynamics of the thorax, as represented by the additional force in~\eqref{eqn:mx_ddot},
+\[
+    -\mathbf{J}_{A_{13}}\dot\Omega_A - \mathbf{K}_{A_{13}}\Omega_A.
+\]
+It is interesting to notice that the Monarch butterfly undulates its abdomen such that the above terms become beneficial to the flight. 
+
 
 \begin{figure}[p]
     \centerline{
@@ -1806,13 +1629,59 @@ Furthermore, an abdomen undulation in the opposite phase reduces those.
 
 \subsection{Asymptotic Stability}
 
-Another interesting results of Figure \ref{fig:comp_ab}.(c) is that the trajectory of the velocity asymptotically converges to a periodic orbit.  
+Another interesting results of Figure \ref{fig:comp_ab}.(c) is that the trajectory of the velocity asymptotically converges to a periodic orbit, while the initial condition does not belong to the periodic orbit exactly.   
 This suggests that the flapping motion captured by the Monarch butterfly yields an asymptotically stable periodic solution. 
 This should be further investigated by dynamic system theory such as Floquet's theorem. 
 
+\section{Conclusions}
+
+This paper presents a dynamic model for a flapping wing aerial vehicle that can characterize the flight of a butterfly. 
+It is composed of articulated rigid bodies such that the dynamic effects of the inertial coupling between multiple parts can be studied. 
+A quasi-state aerodynamic model is also constructed without assuming that the flapping frequency is sufficiently large. 
+Consequently, the proposed model is particularly useful for the butterfly flight that is characterized by relatively large wings flapping at a low frequency and body/abdomen undulation coupled with the flapping motion. 
+
+This proposed model is compared with the data obtained by a live Monarch butterfly. 
+It is shown that the abdomen undulation increases the flight velocity, and the flapping of the Monarch butterfly yields an asymptotically stable periodic orbit. 
+For future study, the effects of the abdomen undulation should be quantitatively evaluated to compare its undulation, and the stability should be rigorously analyzed. 
+
+\bibliographystyle{IEEEtran}
+\bibliography{FWUAV,/Users/tylee/Documents/BibMaster17.bib,/Users/tylee/Documents/tylee.bib,BibCK}
+
+\appendix
+
+\section*{Appendix}
+
+\subsection{Effects of Configuration-Dependency in Inertia}
+{\footnotesize
+\begin{align}
+    \mathbf{L}_g = \begin{bmatrix}
+        0 
+        & \mathbf{K}_{R_{12}} + \mathbf{K}_{L_{12}} + \mathbf{K}_{A_{12}} 
+        & \mathbf{K}_{R_{13}} & \mathbf{K}_{L_{13}} & \mathbf{K}_{A_{13}}\\
+        -\frac{1}{2}(\mathbf{K}_{R_{12}} + \mathbf{K}_{L_{12}} + \mathbf{K}_{A_{12}})^T 
+        & \mathbf{K}_{R_{22}} + \mathbf{K}_{L_{22}} + \mathbf{K}_{A_{22}} -\frac{1}{2}(\mathbf{K}_{R_{22}} + \mathbf{K}_{L_{22}} + \mathbf{K}_{A_{22}})^T 
+        & \mathbf{K}_{R_{23}} -\frac{1}{2}\mathbf{K}_{R_{32}}^T 
+        & \mathbf{K}_{L_{23}} -\frac{1}{2}\mathbf{K}_{L_{32}}^T 
+        & \mathbf{K}_{A_{23}} -\frac{1}{2}\mathbf{K}_{A_{32}}^T \\
+        -\frac{1}{2}\mathbf{K}_{R_{13}}^T 
+        & \mathbf{K}_{R_{32}} -\frac{1}{2}\mathbf{K}_{R_{23}}^T 
+        & \mathbf{K}_{R_{33}} - \frac{1}{2}\mathbf{K}_{R_{33}}^T & 0 & 0 \\
+        -\frac{1}{2}\mathbf{K}_{L_{13}}^T 
+        & \mathbf{K}_{L_{32}} -\frac{1}{2}\mathbf{K}_{L_{23}}^T 
+        & 0 
+        & \mathbf{K}_{L_{33}} - \frac{1}{2}\mathbf{K}_{L_{33}}^T & 0 \\
+        -\frac{1}{2}\mathbf{K}_{A_{13}}^T 
+        & \mathbf{K}_{A_{32}} - \frac{1}{2}\mathbf{K}_{A_{23}}^T & 0 & 0 
+        & \mathbf{K}_{A_{33}} - \frac{1}{2}\mathbf{K}_{A_{33}}^T 
+\end{bmatrix}.
+\end{align}
+}
+
 \subsection{Open-Source Software Package}
 
-A software package for the proposed quasi-state dynamic model of a flapping wing UAV has been developed in Matlab, and it is shared as an open-source library at \href{https://github.com/fdcl-gwu/FWUAV}{\texttt{https://github.com/fdcl-gwu/FWUAV}}.
+A software package for the proposed quasi-state dynamic model has been developed in Matlab, and it is shared as an open-source library at \href{https://github.com/fdcl-gwu/FWUAV}{\texttt{https://github.com/fdcl-gwu/FWUAV}}.
+
+This is composed of the following components. 
 
 \begin{itemize}
     \item Morphological parameters of Monarch butterfly are defied at \texttt{morp\_MONARCH.m}
@@ -1914,66 +1783,6 @@ A software package for the proposed quasi-state dynamic model of a flapping wing
     \path (sim_x) -- (output);
 \end{tikzpicture}
 \end{itemize}
-
-
-\bibliographystyle{IEEEtran}
-\bibliography{FWUAV,/Users/tylee/Documents/BibMaster17.bib,/Users/tylee/Documents/tylee.bib,BibCK}
-
-\appendix
-
-\subsection*{Appendix}
-
-\subsubsection*{Hat Map}
-
-For $x=(x_1,x_2,x_3)\in\Re^3$, 
-\begin{align}
-    \hat x = \begin{bmatrix}
-        0 & -x_3 & x_2 \\
-        x_3 & 0 & -x_1 \\
-        -x_2 & x_1 & 0 
-    \end{bmatrix},
-\end{align}
-
-
-\subsubsection*{Sign Function}
-
-For $x\in\Re$, 
-\begin{align}
-    \mathrm{sgn}(x) =
-    \begin{cases}
-        1 &  x>0,\\
-        0 &  x=0,\\
-        -1 & x<0.
-    \end{cases}
-\end{align}
-
-\clearpage\newpage
-\KOMAoptions{paper=landscape,pagesize}
-\recalctypearea
-
-\subsubsection*{Effects of Configuration-Dependency in Inertia}
-\begin{align}
-    \mathbf{L}_g = \begin{bmatrix}
-        0 
-        & \mathbf{K}_{R_{12}} + \mathbf{K}_{L_{12}} + \mathbf{K}_{A_{12}} 
-        & \mathbf{K}_{R_{13}} & \mathbf{K}_{L_{13}} & \mathbf{K}_{A_{13}}\\
-        -\frac{1}{2}(\mathbf{K}_{R_{12}} + \mathbf{K}_{L_{12}} + \mathbf{K}_{A_{12}})^T 
-        & \mathbf{K}_{R_{22}} + \mathbf{K}_{L_{22}} + \mathbf{K}_{A_{22}} -\frac{1}{2}(\mathbf{K}_{R_{22}} + \mathbf{K}_{L_{22}} + \mathbf{K}_{A_{22}})^T 
-        & \mathbf{K}_{R_{23}} -\frac{1}{2}\mathbf{K}_{R_{32}}^T 
-        & \mathbf{K}_{L_{23}} -\frac{1}{2}\mathbf{K}_{L_{32}}^T 
-        & \mathbf{K}_{A_{23}} -\frac{1}{2}\mathbf{K}_{A_{32}}^T \\
-        -\frac{1}{2}\mathbf{K}_{R_{13}}^T 
-        & \mathbf{K}_{R_{32}} -\frac{1}{2}\mathbf{K}_{R_{23}}^T 
-        & \mathbf{K}_{R_{33}} - \frac{1}{2}\mathbf{K}_{R_{33}}^T & 0 & 0 \\
-        -\frac{1}{2}\mathbf{K}_{L_{13}}^T 
-        & \mathbf{K}_{L_{32}} -\frac{1}{2}\mathbf{K}_{L_{23}}^T 
-        & 0 
-        & \mathbf{K}_{L_{33}} - \frac{1}{2}\mathbf{K}_{L_{33}}^T & 0 \\
-        -\frac{1}{2}\mathbf{K}_{A_{13}}^T 
-        & \mathbf{K}_{A_{32}} - \frac{1}{2}\mathbf{K}_{A_{23}}^T & 0 & 0 
-        & \mathbf{K}_{A_{33}} - \frac{1}{2}\mathbf{K}_{A_{33}}^T 
-\end{bmatrix}.
-\end{align}
 
 
 
