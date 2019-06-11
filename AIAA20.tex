@@ -12,7 +12,7 @@
 \usepackage{trimclip} % for AR symbol
 \usepackage[paper=portrait,pagesize,DIV=13]{typearea}
 
-
+\hypersetup{draft}
 \usepackage{amsmath,amssymb,url,subfigure,graphicx,theorem}
 %\usepackage{graphicx,subfigure,hyperref}
 %\usepackage{color,comment,algpseudocode,cases}
@@ -83,7 +83,7 @@
 
 \title{Geometric Formulation for the Dynamics of Monarch Butterfly with the Effects of Abdomen Undulation}
 
-\author{Madhu Sridhar,\footnote{Graduate Student, Mechanical and Aerospace Engineering, University of Alabama Huntsville, 301 Sparkman Dr, Huntsville AL 35899}
+\author{Madhu K. Sridhar,\footnote{Graduate Student, Mechanical and Aerospace Engineering, University of Alabama Huntsville, 301 Sparkman Dr, Huntsville AL 35899}
 Chang-kwon Kang\footnote{Assistant Professor, Mechanical and Aerospace Engineering, University of Alabama Huntsville, 301 Sparkman Dr, Huntsville AL 35899}}
 \affil{University of Alabama Huntsville, Huntsville AL, 35899}
 \author{Taeyoung Lee\footnote{Associate Professor, Mechanical and Aerospace Engineering, The George Washington University, 800 22nd st NW, Washington DC, 20052.}}
@@ -98,9 +98,9 @@ Chang-kwon Kang\footnote{Assistant Professor, Mechanical and Aerospace Engineeri
     The proposed model is essentially articulated rigid bodies, where two wings and an abdomen are connected to a thorax via spherical joint.
     An intrinsic form of Lagrangian mechanics is developed to study the inertial effects of the relative rotation between each part. 
     Next, a quasi-steady aerodynamic model is presented without relying on the common assumption that the flapping frequency is sufficiently large. 
-    Consequently, it is suitable to study the flight of a butterfly that is characterized by a relatively large wings flapping in a lower frequency. 
+    Consequently, it is suitable to study the flight of a butterfly that is characterized by relatively large wings flapping in a lower frequency. 
     The outcome of the proposed model is compared with the captured motion of a live Monarch butterfly.
-    It is shown that the undulation of the abdomen increases the climb rate and the forward velocity, and the motion of Monarch butter fly yields a stable period orbit. 
+    It is shown that the undulation of the abdomen increases the climb rate and the forward velocity, and the motion of Monarch butterfly yields a stable period orbit. 
 \end{abstract}
 
 %\section{Nomenclature}
@@ -153,7 +153,7 @@ Instead, it is presumed that the relatively large aerodynamic forces generated b
 As such, by adjusting the center of mass, a butterfly inspired ornithopter without a tail could fly forward passively without a feedback controller ~\cite{Tanaka2010}.
 If the forward flight of butterflies were indeed passive, the power consumption is expected to be lower than an actively controlled flight.
 The power savings due to coupled wing-body motion can contribute to our understanding of the long-range Monarch migration ~\cite{Sridhar2019}, which, in turn, can inform the development of long-range micro flying robots.
-However, there are also reports that butterfly’s flight under periodic flapping motion is unstable because the butterfly cannot maintain its body pitch angle within a proper range ~\cite{Yokoyama2013,Jayakumar2018}.
+However, there are also reports that contradict these findings: butterfly’s flight under periodic flapping motion is unstable because the butterfly cannot maintain its body pitch angle within a proper range ~\cite{Yokoyama2013,Jayakumar2018}.
 The motion of the abdomen had to be actively controlled to stabilize the butterfly flight \cite{Jayakumar2018}.
 
 The objective of this paper is to derive, validate, and analyze a dynamic model that can characterize the Monarch butterfly flight.
@@ -173,7 +173,7 @@ Finally, the results of this model are compared to the detailed motion of the th
 The live Monarch butterfly flight is measured using a motion-tracking system \cite{kang2017aiaaj}, and the corresponding wing kinematics and the body undulations are extracted. 
 It is illustrated that the simulation results constructed from the measured wing kinematics are consistent with the experimental results.  
 Further we perform several numerical simulations to study the butterfly flight dynamics.
-Our preliminary results show that the trajectory of the velocity asymptotically converges to a periodic orbit, suggesting that the flapping motion captured by the Monarch butterfly yields an asymptotically stable periodic solution.
+Our results show that the trajectory of the velocity asymptotically converges to a periodic orbit, suggesting that the flapping motion captured by the Monarch butterfly yields an asymptotically stable periodic solution.
 Furthermore, it is demonstrated that the abdomen undulation as measured by the live Monarch butterfly increases the forward flight velocity and the climb rate, against the other cases of fixed abdomen or undulation in the opposite phase. 
 The role of abdomen undulation in the stability of attitude dynamics has been presented in~\cite{dyhr2013flexible}.
 The presented results suggest that the abdomen may have another desirable effects on the translational dynamics of butterfly flight. 
@@ -188,7 +188,7 @@ We assume that the head and the thorax are coagulated into a single rigid body, 
 Also, we assume that hindwings move in unison with forewings.
 
 Here we present a mathematical description for the kinematics of the proposed articulated rigid body model.
-Define an inertial frame $\mathcal{F}_I=\{\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z\}$, where the third axis points downward, and the first two axes span the horizontal plane. 
+Define an inertial frame $\mathcal{F}_I=\{\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z\}$, where the third axis points downward, and the first two axes span the horizontal plane (Fig. \ref{fig:FI_FB}). 
 This is compatible to the NED (north-east-down) frame common in flight dynamics.
 \nomenclature{$\mathcal{F}_I$}{North-East-Down inertial frame}
 \nomenclature{$\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z$}{basis vector of the inertial frame}
@@ -196,9 +196,9 @@ This is compatible to the NED (north-east-down) frame common in flight dynamics.
 \subsection{Body}
 
 Define the body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$,
-whose origin is located at its mass center of the body.
+whose origin is located at its mass center of the body (Fig. \ref{fig:FI_FB}).
 Following the common convention in flight dynamics, the first axis points toward the head, the second axis point toward the right wing, and the third axis points toward the ventral (belly) side.
-\nomenclature{$\mathcal{F}_B$}{body-fixed frame (see Figure \ref{fig:FI_FB})}
+\nomenclature{$\mathcal{F}_B$}{body-fixed frame (see Fig. \ref{fig:FI_FB})}
 \nomenclature{$\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z$}{basis vector of the body-fixed frame}
 
 \setlength{\unitlength}{0.1\columnwidth}
@@ -215,7 +215,7 @@ Following the common convention in flight dynamics, the first axis points toward
             \put(1.15,0.7){$\mathbf{b}_z$}
         \end{picture}
     \end{center}
-    \caption{The inertial frame $\mathcal{F}_I=\{\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z\}$ (black) and the body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue)}\label{fig:FI_FB}
+    \caption{The inertial frame $\mathcal{F}_I=\{\mathbf{i}_x,\mathbf{i}_y,\mathbf{i}_z\}$ (black) and the body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue).}\label{fig:FI_FB}
 \end{figure}
 The location of the mass center of the body is given by $x\in\Re^3$ in $\mathcal{F}_I$. 
 The attitude of the body is described by $R\in\SO=\{R\in \Re^{3\times 3}\,|\, R^T R = I_{3\times 3},\; \mathrm{det}[R]=1\}$, which represents the linear transformation of a representation of a vector from $\mathcal{F}_B$ to $\mathcal{F}_I$. 
@@ -247,13 +247,13 @@ The inverse of the hat map is denoted by the \textit{vee} map, $\vee: \so\righta
 
 \paragraph{Right Wing}
 
-Let $\mathcal{F}_R=\{\mathbf{r}_x,\mathbf{r}_y,\mathbf{r}_z\}$ be the frame fixed to the right wing.
+Let $\mathcal{F}_R=\{\mathbf{r}_x,\mathbf{r}_y,\mathbf{r}_z\}$ be the frame fixed to the right wing (Fig. \ref{fig:FR}).
 Its origin is located at the joint of the right wing, or the wing root where the right wing is attached to the thorax. 
 The vector from the origin of $\mathcal{F}_B$ to the origin of $\mathcal{F}_R$ is defined as $\mu_R\in\Re^3$. 
 As it is resolved in $\mathcal{F}_B$ and the body is rigid, we have $\dot\mu_R=0$.
 The first two axes of $\mathcal{F}_R$ span the plane of the wing, where the first axis points toward the leading edge and the second axis points toward the wing tip. 
 Consequently, the third axis is normal to the wing plane, and it points toward the ventral side when there is no rotation of the right wing.
-\nomenclature{$\mathcal{F}_R$}{frame fixed to the right wing (see Figure~\ref{fig:FR})}
+\nomenclature{$\mathcal{F}_R$}{frame fixed to the right wing (see Fig. ~\ref{fig:FR})}
 \nomenclature{$\mathbf{r}_x,\mathbf{r}_y,\mathbf{r}_z$}{basis vector of $\mathcal{F}_R$}
 \nomenclature{$\mu_R\in\Re^3$}{the fixed vector from the mass center of the body to the root of the right wing resolved in $\mathcal{F}_B$}
 
@@ -272,7 +272,7 @@ Consequently, the third axis is normal to the wing plane, and it points toward t
     \caption{The body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue), the right wing frame $\mathcal{F}_R=\{\mathbf{r}_x,\mathbf{r}_y,\mathbf{r}_z\}$ (red)}\label{fig:FR}
 \end{figure}
 
-Next, we introduce the stroke frame $\mathcal{F}_S=\{\mathbf{s}_x,\mathbf{s}_y,\mathbf{s}_z\}$, which is constructed by translating the origin of $\mathcal{F}_B$ to the center of the left wing root and the right wing root, and rotating it about $\mathbf{b}_y$ by $\beta\in[-\pi,\pi)$.
+Next, we introduce the stroke frame $\mathcal{F}_S=\{\mathbf{s}_x,\mathbf{s}_y,\mathbf{s}_z\}$, which is constructed by translating the origin of $\mathcal{F}_B$ to the center of the left wing root and the right wing root, and rotating it about $\mathbf{b}_y$ by $\beta\in[-\pi,\pi)$ (Fig. \ref{fig:FS}).
 The $y$--$z$ plane of $\mathcal{F}_S$ is referred to as the stroke plane. 
 
 \setlength{\unitlength}{0.1\columnwidth}
@@ -289,18 +289,18 @@ The $y$--$z$ plane of $\mathcal{F}_S$ is referred to as the stroke plane.
            \put(0.05,1.9){\shortstack[c]{stroke\\plane}}
         \end{picture}
     \end{center}
-    \caption{The body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue), the stroke frame $\mathcal{F}_S=\{\mathbf{s}_x,\mathbf{s}_y,\mathbf{s}_z\}$ (green)}\label{fig:FS}
+    \caption{The body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue), the stroke frame $\mathcal{F}_S=\{\mathbf{s}_x,\mathbf{s}_y,\mathbf{s}_z\}$ (green).}\label{fig:FS}
 \end{figure}
 
 The angle $\beta$ can be considered as the angle between $\mathbf{b}_x$, and $\mathbf{s}_x$ that is normal to the stroke plane. 
 Or equivalently, it is the angle between $y$--$z$ plane of $\mathcal{F}_B$ and the stroke plane.
 It is positive when $\mathbf{s}_x\cdot \mathbf{b}_z <0$.  
-This angle is often defined as the angle between the ground, horizontal plane and the stroke plane, considering hovering flights with a fixed attitude of the body.
+This angle is often defined as the angle between the ground (horizontal plane) and the stroke plane, considering hovering flights with a fixed attitude of the body.
 Here, it is defined relative to $\mathcal{F}_B$ as the flapping motion is inherently relative to the body. 
 \nomenclature{$\mathcal{F}_S$}{stroke frame (see Figure \ref{fig:FS})}
 \nomenclature{$\mathbf{s}_x,\mathbf{s}_y,\mathbf{s}_z$}{basis vector of $\mathcal{F}_S$}
 \nomenclature{$\beta\in[-\pi,\pi)$}{the angle between $\mathbf{b}_x$ and $\mathbf{s}_x$ that is normal to the stroke plane, or equivalently, the angle between $y$--$z$ plane of $\mathcal{F}_B$ and the stroke plane.
-It is positive when $\mathbf{s}_x\cdot \mathbf{b}_z <0$.  (see Figure \ref{fig:FS})}
+It is positive when $\mathbf{s}_x\cdot \mathbf{b}_z <0$.  (see Fig. \ref{fig:FS})}
 
 \begin{figure}
     \centerline{
@@ -330,11 +330,11 @@ It is positive when $\mathbf{s}_x\cdot \mathbf{b}_z <0$.  (see Figure \ref{fig:F
         \end{picture}
     }
 }
-\caption{Wing configuration when only one of $(\phi,\theta,\psi)$ is non-zero}\label{fig:wing_Euler}
+\caption{Wing configuration when only one of $(\phi,\theta,\psi)$ is non-zero.}\label{fig:wing_Euler}
 \end{figure}
 
 
-The motion of the right wing relative to $\mathcal{F}_S$ is described by 1--3--2 Euler angles $(\phi_R,\psi_R,\theta_R)$. 
+The motion of the right wing relative to $\mathcal{F}_S$ is described by 1--3--2 Euler angles $(\phi_R,\psi_R,\theta_R)$ (Fig. \ref{fig:wing_Euler}). 
 Consequently, the orientation of the right wing relative to $\mathcal{F}_B$, namely $Q_R\in\SO$ is described by
 \begin{align}
     Q_R(t) = \exp(\beta \hat e_2)\exp(\phi_R(t) \hat e_1) \exp(-\psi_R(t) \hat e_3) \exp(\theta_R(t) \hat e_2),\label{eqn:Q_R}
@@ -354,7 +354,7 @@ The Euler-angles are defined as
 As given by~\eqref{eqn:Q_R}, the three-dimensional attitude of the right wing is parameterized by four angles, and as such there is a redundancy in defining the stroke plane. 
 In general, the deviation angle is relatively small for most of insects. 
 In particular, when $\psi_R$ is exactly zero, the stroke plane is defined such that it is spanned by the motion of the wing tip. 
-If the deviation angle is not zero, then the stroke plane can be chose such that the distance between the wing tip and the stroke plane, after integrated over a stroke, is minimized. 
+If the deviation angle is not zero, then the stroke plane can be chosen such that the distance between the wing tip and the stroke plane, after integrated over a stroke, is minimized. 
 This will be further discussed in Section \ref{sec:Monarch}.
 
 
@@ -384,7 +384,7 @@ This is not restrictive as the deviation angle is small in general.
 
 \paragraph{Left Wing}
 
-Similarly, let $\mathcal{F}_L$ be the frame fixed to the left wing.
+Similarly, let $\mathcal{F}_L$ be the frame fixed to the left wing (Fig. \ref{fig:FL}).
 It can be obtained by translating $\mathcal{F}_R$ to the root of the left wing without any rotation.
 More specifically, its origin is located at the joint of the left wing, where the left wing is attached to the thorax. 
 The first two axes span the plane of the wing, where the first axis points toward the leading edge and the second axis points toward the right wing, opposite to the left wing tip.
@@ -405,7 +405,7 @@ Consequently, the third axis is normal to the wing plane, and it points toward t
            \put(2.85,0.75){$\mathbf{b}_y$}
         \end{picture}
     \end{center}
-    \caption{The body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue), the left wing frame $\mathcal{F}_L=\{\mathbf{l}_x,\mathbf{l}_y,\mathbf{l}_z\}$ (red)}\label{fig:FL}
+    \caption{The body-fixed frame $\mathcal{F}_B=\{\mathbf{b}_x,\mathbf{b}_y,\mathbf{b}_z\}$ (blue), the left wing frame $\mathcal{F}_L=\{\mathbf{l}_x,\mathbf{l}_y,\mathbf{l}_z\}$ (red).}\label{fig:FL}
 \end{figure}
 
 Similar as the right wing, the motion of the left wing relative to the thorax is described by $Q_L\in\SO$, which is described by successive rotations as
@@ -467,7 +467,7 @@ where $\Omega_A\in\Re^3$ is the angular velocity of the abdomen relative to the 
 \section{Quasi-Steady Aerodynamics}\label{sec:QS}
 
 The quasi-steady assumption implies that the aerodynamic force and moment generated by the flapping wing are equivalent to those for steady motion at the same instantaneous velocity and the angle of attack. 
-In this section, we propose a quasi-steady aerodynamic model for the butterfly flights characterized by relatively slow lapping of large wings. 
+In this section, we propose a quasi-steady aerodynamic model for the butterfly flights characterized by relatively slow flapping of large wings. 
 Without relying on the common assumption that the flapping frequency is sufficiently large, an expression for the translational forces and the rotational force is presented.
 This accounts the effects of the translational and rotational motion of the body, and the wind gust in the aerodynamic force.
 
@@ -488,7 +488,7 @@ This accounts the effects of the translational and rotational motion of the body
            \put(1.8,1.05){$r$}
         \end{picture}
     \end{center}
-    \caption{Infinitesimal wing segment }\label{fig:wing_segment}
+    \caption{Infinitesimal wing segment. }\label{fig:wing_segment}
 \end{figure}
 
 We first present several morphological parameters of the wing as formulated in to~\cite{ellington1984aerodynamics}, after making a few changes in the notation.  
@@ -497,7 +497,7 @@ However, the same symbol is used for the hat map in \eqref{eqn:hat_map}.
 Instead, we use the symbol $\tilde{\;\;}$ for the normalized variables to avoid conflict with~\eqref{eqn:hat_map}.
 Also, the morphological parameters are defined for a single wing as the aerodynamic force of the left wing will be distinguished from the right wing for non-symmetric flapping. 
 
-Let $dr$ be the infinitesimal wing segment located distanced at $r$ from the wing root. 
+Let $dr$ be the infinitesimal wing segment located distanced at $r$ from the wing root (Fig. \ref{fig:wing_segment}). 
 Let its chord be defined as $c(r)$. 
 The wing segment is parallel to $\mathbf{r}_x$ and the distance is measured along $\mathbf{r}_y$.
 Assume that the aerodynamic center of the segment is along $\mathbf{r}_y$, i.e., the resultant force generated by the wing segment is located along $\mathbf{r}_y$ with zero moment. 
@@ -715,10 +715,10 @@ The ambiguity of the sign can be resolved by the fact that when the $\mathbf{r}_
             \end{picture}
         }
     }
-    \caption{Direction of the velocity and the lift in the $\mathbf{r}_x$--$\mathbf{r}_z$ plane of the right wing}\label{fig:lift_direction}
+    \caption{Direction of the velocity and the lift in the $\mathbf{r}_x$--$\mathbf{r}_z$ plane of the right wing.}\label{fig:lift_direction}
 \end{figure}
 
-More specifically, consider the four cases illustrated in Figure~\ref{fig:lift_direction}.
+More specifically, consider the four cases illustrated in Fig. ~\ref{fig:lift_direction}.
 These show that the direction of lift is $e_2\times U_R(r)$ when $e_1^T U_R(r)$ and $e_3^TU_R(r)$ have the same sign (Case 1 and Case 4), and it is $-e_2\times U_R(r)$ when they have the opposite sign (Case 2 and Case 3).
 Therefore, the infinitesimal lift vector resolved in $\mathcal{F}_R$ is given by
 \begin{align}
@@ -909,7 +909,7 @@ Also, to mitigate the singularity caused by $\|U\|\ll 1$, we evaluate $\|U\|\dot
 
 Next, we find the direction of the rotational lift. 
 It is shown that the rotational lift is always perpendicular to the chord line, and consequently it is $\pm e_3$ in $\mathcal{F}_R$. 
-Consider the four cases of $\alpha >0$ illustrated in Figure \ref{fig:lift_direction}.
+Consider the four cases of $\alpha >0$ illustrated in Fig. \ref{fig:lift_direction}.
 For the first two cases of $e_3^T U >0$, $\dot\alpha >0$ generates the rotational lift along $-e_3$, and for the last two cases of $e_3^T U(r) <0$,  $\dot\alpha>0$ generates the rotational lift along $e_3$. 
 Therefore, when $\alpha >0$, the direction of the rotational lift is $-\mathrm{sgn}(e_3^T U) \mathrm{sgn}(\dot\alpha) e_3$.
 
@@ -985,10 +985,10 @@ Therefore, when $\alpha >0$, the direction of the rotational lift is $-\mathrm{s
             \end{picture}
         }
     }
-    \caption{Direction of the rotational lift when $\alpha=0$}\label{fig:lift_rot}
+    \caption{Direction of the rotational lift when $\alpha=0$ deg.}\label{fig:lift_rot}
 \end{figure}
 
-For the case of $\alpha=0$, the direction of the rotational lift is illustrated in Figure \ref{fig:lift_rot}, where the rotational lift is always opposite to $e_3^T \dot U$.
+For the case of $\alpha=0$, the direction of the rotational lift is illustrated in Fig. \ref{fig:lift_rot}, where the rotational lift is always opposite to $e_3^T \dot U$.
 Therefore, its direction is given by $-\mathrm{sgn}(e_3^T \dot U) e_3$. 
 
 These two cases for the direction can be combined into
@@ -1370,16 +1370,16 @@ The corresponding control torque $(\tau_R,\tau_L,\tau_A)$ can be computed by \eq
             \includegraphics[width=0.45\textwidth]{MONARCH_c}
         }
     }
-    \caption{Monarch wing shape and chord}\label{fig:Monarch_wing}
+    \caption{Monarch wing shape and chord.}\label{fig:Monarch_wing}
 \end{figure}
 
 The morphological parameters and the mass distribution of Monarch are determined by an actual butterfly.
 The location of the leading edge and the trailing edge are measured along the span-wise direction, and they are fitted by sixth-order polynomials.  
-The resulting measurements and the fitted curve are illustrated in Figure \ref{fig:Monarch_wing}.
+The resulting measurements and the fitted curve are illustrated in Fig. \ref{fig:Monarch_wing}.
 From the fitted chord, we determine the morphological parameters as summarized in Table \ref{tab:Monarch}.
 \newcolumntype{m}{>{$}l<{$}} % math-mode version of "c" column type
-\begin{table}
-    \caption{Monarch parameters}\label{tab:Monarch}
+\begin{table}[!ht]
+    \caption{Monarch parameters.}\label{tab:Monarch}
     \begin{center}
         \begin{tabular}{|m|m|m|m|m|m|}
             \hline
@@ -1475,8 +1475,8 @@ Finally, it is assumed that the root of the wing and the joint of the abdomen ar
 \subsection{Flight Characteristics of Monarch}
 
 The flight of an actual Monarch butterfly is studied by a motion capture system. 
-The twelve markers are attached to a Monarch as illustrated in Figure \ref{fig:Monarch_marker},
-and the position of each marker is measured by a VICON motion capture system at 200\si{Hz}.
+The twelve markers are attached to a Monarch as illustrated in Fig. \ref{fig:Monarch_marker}(a),
+and the position of each marker is measured by a VICON motion capture system at 200 \si{Hz}.
 
 \begin{figure}
     \centerline{
@@ -1488,18 +1488,18 @@ and the position of each marker is measured by a VICON motion capture system at 
             \includegraphics[width=0.5\textwidth]{Monarch_frame}
         }
 }
-\caption{Monarch motion capture}\label{fig:Monarch_marker}
+\caption{Monarch motion capture.}\label{fig:Monarch_marker}
 \end{figure}
 
 
 These are converted into $(x,R,Q_R,Q_L,Q_A)$ as follows. 
-It is considered that the origin of the body, namely $x$ is located at the center of $T_1$ and $T_2$. 
+It is considered that the origin of the body, namely $x$, is located at the center of $T_1$ and $T_2$. 
 For the body attitude $R$, it is assumed that the first axis is along $T_1-T_2$ and the second axis is parallel to the ground, i.e., there is no body roll. 
 This is reasonable as the measured flight trajectory is almost straight. 
 For the attitude of the abdomen, the first axis points from the center of $A_1$ and $A_2$ toward $T_2$, and the second axis is parallel to the ground. 
 The resulting rotation matrix is left multiplied by $R^T$ to obtain the relative attitude $Q_A$. 
 
-For the right wing attitude, it is assumed that the wing root it located at the center of $T_1$ and $T_2$.
+For the right wing attitude, it is assumed that the wing root is located at the center of $T_1$ and $T_2$.
 The wing plane always passes through the wing root exactly, and it is spanned by the three markers on the right wing. 
 However, due to the measurement errors and the flexibility of the wing, those points do not exactly lie on a single plane. 
 Instead, we find the normal vector of the plane such that the sum of the squared distance between each marker and the plane is minimized. 
@@ -1514,14 +1514,14 @@ First, we determine the wing stroke plane.
 In the absences of the deviation angle $\psi$, the second column of $Q_R(t)$ and $Q_L(t)$ over multiple time instances span the stroke plane. 
 We find the stroke plane such that the sum of the squared distance for $Q_R(t) e_2$ and $Q_L(t) e_2$ for varying $t$ over the experiment period is minimized. 
 It turns out that the normal vector to the stroke plane is not in the $\mathbf{b}_x$--$\mathbf{b}_z$ plane. 
-More explicitly, it is given by $[   -0.8948, -0.1222, 0.4294]$, i.e., it is rotated by $-7.77\si{deg}$ when observed the dorsal side,
-or the right wing tip is ahead of the left wing tip.
+More explicitly, it is given by $[   -0.8948, -0.1222, 0.4294]$, i.e., it is rotated by $-7.77\ \si{deg}$ when observed the dorsal side,
+or the right wing tip is ahead of the left wing tip (Fig. \ref{fig:Monarch_WK}(a)).
 This might have been caused by the asymmetry of the particular Monarch butterfly used in the experiment, or the bias in the marker attachment.
-Instead dealing with the asymmetry in the left wing and the right wing, we multiply $\exp(7.77\hat e_3)$ to $Q_R$ and $Q_L$ such that they become symmetric in the least square sense. 
-The resulting normal vector of the stroke plane lies in the $\mathbf{b}_x$--$\mathbf{b}_z$ plane, ans the stroke plane angle is $\beta = 25.42\si{deg}$.
+Instead of dealing with the asymmetry in the left wing and the right wing, we multiply $\exp(7.77\hat e_3)$ to $Q_R$ and $Q_L$ such that they become symmetric in the least square sense. 
+The resulting normal vector of the stroke plane lies in the $\mathbf{b}_x$--$\mathbf{b}_z$ plane, and the stroke plane angle is $\beta = 25.42 \ \si{deg}$.
 From the given $\beta$, and rotated $Q_R(t),Q_L(t)$, we can determine the wing kinematics angles $(\phi_R(t),\theta_R(t),\psi_R(t)$, and $(\phi_L(t),\theta_L(t),\psi_L(t))$ according to \eqref{eqn:Q_R} and \eqref{eqn:Q_L}, respectively. 
-These are illustrated in Figure \ref{fig:Monarch_WK}.
-The wing kinematics angles for the right wing are mostly consistent withe the left wing, except the small deviation angle. 
+These are illustrated in Fig. \ref{fig:Monarch_WK}(b).
+The wing kinematics angles for the right wing are mostly consistent with the the left wing, except the small deviation angle. 
 Assuming the symmetric wing kinematics, we take the average between the right wing and the left wing, 
 and they are fitted with Fourier series to be used in the subsequent dynamic simulation. 
 
@@ -1536,7 +1536,7 @@ and they are fitted with Fourier series to be used in the subsequent dynamic sim
             \includegraphics[width= 0.45\textwidth]{fit_VICON_E}
         }
     }
-    \caption{Monarch wing kinematics}\label{fig:Monarch_WK}
+    \caption{Monarch wing kinematics. The wing kinematics angles are in degrees.}\label{fig:Monarch_WK}
 \end{figure}
 
 \subsection{Dynamic Simulation}
@@ -1544,7 +1544,7 @@ and they are fitted with Fourier series to be used in the subsequent dynamic sim
 From the above wing kinematics angles and the body/abdomen attitude obtained by the actual Monarch butterfly,
 we numerically integrate the quasi-steady position dynamics, namely \eqref{eqn:mx_ddot}.
 The corresponding results are compared against the experimental data. 
-These are illustrated at Figure \ref{fig:comp_VICON}.
+These are illustrated in Fig. \ref{fig:comp_VICON}.
 In general, the downstrokes generate the lift upward, and the upstrokes generate thrust forward,
 while yielding a climbing trajectory with oscillation.
 
@@ -1580,7 +1580,7 @@ However, it is consistent with the experimental data in a qualitative manner, th
             \includegraphics[width=0.5\textwidth]{comp_VICON_theta}
         }
     }
-    \caption{Comparison between the QS model (blue) and the experimental data (red); shaded area corresponds to downstroke; the resultant force of the experiment is constructed by the acceleration of the thorax, multiplied by the total mass and subtracted by the gravity}\label{fig:comp_VICON}
+    \caption{Comparison between the QS model (blue) and the experimental data (red); shaded area corresponds to downstroke; the resultant force of the experiment is constructed by the acceleration of the thorax, multiplied by the total mass and subtracted by the gravity. The position is shown in m, velocity in m/s, forces in N, and angles in degrees. }\label{fig:comp_VICON}
 \end{figure}
 
 \subsection{Effects of Abdomen}
@@ -1589,8 +1589,8 @@ It turns out that for Monarch butterfly flights, the abdomen oscillate at the sa
 i.e., the abdomen rotates downward during the wing upstrokes. 
 
 To test the effects of abdomen undulation with the proposed model, we simulate the above Monarch model for 50 strokes while fixing the abdomen pitching angle to the averaged value. 
-These results are illustrated at Figure \ref{fig:comp_ab}.
-While the discrepancy is not substantial, it is shown that the abdomen undulation slightly increases the climb rate and the forward velocity.  
+These results are illustrated at Fig. \ref{fig:comp_ab}.
+While the difference is not substantial, it is shown that the abdomen undulation slightly increases the climb rate and the forward velocity.  
 
 Furthermore, we consider another case when the abdomen undulate in the opposite phase to the measured vales.
 Interestingly, this yields the worst results, where the forward velocity and the climb rate are smaller than the case of fixed abdomen. 
@@ -1625,12 +1625,12 @@ It is interesting to notice that the Monarch butterfly undulates its abdomen suc
             \includegraphics[width=0.5\textwidth]{comp_ab_theta}
         }
     }
-    \caption{Comparison between flight with abdomen undulation (blue), without abdomen undulation (green), with abdomen undulation in the opposite phase (purple); the simulation is for 50 strokes, and the results of the first 5 strokes are illustrated for the subfigure (d) and (e)}\label{fig:comp_ab}
+    \caption{Comparison between flight with abdomen undulation (blue), without abdomen undulation (green), with abdomen undulation in the opposite phase (purple); the simulation is for 50 strokes, and the results of the first 5 strokes are illustrated for the subfigure (d) and (e). The position is shown in m, velocity in m/s, and angles in degrees.}\label{fig:comp_ab}
 \end{figure}
 
 \subsection{Asymptotic Stability}
 
-Another interesting results of Figure \ref{fig:comp_ab}.(c) is that the trajectory of the velocity asymptotically converges to a periodic orbit, while the initial condition does not belong to the periodic orbit exactly.   
+Another interesting results of Fig. \ref{fig:comp_ab}(c) is that the trajectory of the velocity asymptotically converges to a periodic orbit, while the initial condition does not belong to the periodic orbit exactly.   
 This suggests that the flapping motion captured by the Monarch butterfly yields an asymptotically stable periodic solution. 
 This should be further investigated by dynamic system theory such as Floquet's theorem. 
 
@@ -1638,7 +1638,7 @@ This should be further investigated by dynamic system theory such as Floquet's t
 
 This paper presents a dynamic model for a flapping wing aerial vehicle that can characterize the flight of a butterfly. 
 It is composed of articulated rigid bodies such that the dynamic effects of the inertial coupling between multiple parts can be studied. 
-A quasi-state aerodynamic model is also constructed without assuming that the flapping frequency is sufficiently large. 
+A quasi-steady aerodynamic model is also constructed without assuming that the flapping frequency is sufficiently large. 
 Consequently, the proposed model is particularly useful for the butterfly flight that is characterized by relatively large wings flapping at a low frequency and body/abdomen undulation coupled with the flapping motion. 
 
 This proposed model is compared with the data obtained by a live Monarch butterfly. 
@@ -1679,112 +1679,112 @@ For future study, the effects of the abdomen undulation should be quantitatively
 \end{align}
 }
 
-\subsection{Open-Source Software Package}
-
-A software package for the proposed quasi-state dynamic model has been developed in Matlab, and it is shared as an open-source library at \href{https://github.com/fdcl-gwu/FWUAV}{\texttt{https://github.com/fdcl-gwu/FWUAV}}.
-
-This is composed of the following components. 
-
-\begin{itemize}
-    \item Morphological parameters of Monarch butterfly are defied at \texttt{morp\_MONARCH.m}
-    \item The raw data from VICON are processed by the following three files under \texttt{/exp\_data}.
-
-\begin{tikzpicture}[auto]
-    \tikzstyle{block} = [text width=7em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-    \tikzstyle{line} = [draw, -latex'];
-    \matrix[column sep=10mm, row sep=4mm]
-    {
-        \node[block] (VICON) {\texttt{VICON DATA.xls}}; & 
-            \node[block] (load) {\texttt{load\_VICON\_data.m}}; & 
-                \node[block] (fit) {\texttt{fit\_VICON\_data.m}}; & 
-                    \node[block] (ani) {\texttt{ani\_VICON\_data.m}}; \\
-    };
-    \tikzstyle{every path}=[line]
-    \path (VICON) -- (load);
-    \path (load) -- (fit);
-    \path (fit) -- (ani);
-\end{tikzpicture}
-
-    \item For given torque at the wing and the abdomen, the complete dynamics \eqref{eqn:EL} are simulated as follows. 
-
-\begin{tikzpicture}[auto]
-    \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-    \tikzstyle{line} = [draw, -latex'];
-    \matrix[column sep=14mm, row sep=4mm]
-    {
-            \node[block,text width=1em] (t) {$t$}; &
-        \node[block] (tau) {control torque}; & 
-            \node[block] (sim) {\texttt{sim\_QS\_all.m}}; &
-        \node[block, text width=6.5em] (output) {$(x,R,Q_R,Q_L,Q_A)$}; \\
-            & & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; \\
-            %& & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}};\\
-    };
-    \tikzstyle{every path}=[line]
-    \path (t) -- (tau);
-    \path (tau) -- node {\scriptsize $\tau_R,\tau_L,\tau_A$} (sim);
-    \path (sim) -- (output);
-    \path (output) |- (QS);
-    \path (QS) -- node {\scriptsize $F_B$} (sim);
-\end{tikzpicture}
-
-    \item For given wing Euler angles and the abdomen attitude, the position and the attitude dynamics of the thorax, namely \eqref{eqn:EL_xR} are simulated as follows.
-
-\begin{tikzpicture}[auto]
-    \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-    \tikzstyle{line} = [draw, -latex'];
-    \matrix[column sep=12mm, row sep=3mm]
-    {
-        & & & & 
-        \node[block, text width=6.5em] (output) {$(x,R),(\tau_R,\tau_L,\tau_A)$}; \\
-        \node[block,text width=1em] (t) at (0,0) {$t$}; &
-        \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
-        \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
-            \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
-        \node[block] (sim_x) {\texttt{sim\_QS\_xR.m}}; \\
-            & &
-        \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
-    };
-    \tikzstyle{every path}=[line]
-    \path (t) -- (wk);
-    \path (t) |- (aa);
-    \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
-    \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
-    \path (QS) -- node {\scriptsize$F_B$} (sim_x);
-    \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
-    \path (sim_x) -- (output);
-\end{tikzpicture}
-
-    \item For given wing Euler angles, the thorax attitude, and the abdomen attitude, the position dynamics \eqref{eqn:mx_ddot} are simulated as follows.
-
-\begin{tikzpicture}[auto]
-    \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-    \tikzstyle{line} = [draw, -latex'];
-    \matrix[column sep=12mm, row sep=3mm]
-    {
-        & & & & 
-        \node[block, text width=6.5em] (output) {$x,(\tau_R,\tau_L,\tau_A)$}; \\
-        \node[block,text width=1em] (t) at (0,0) {$t$}; &
-        \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
-        \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
-            \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
-        \node[block] (sim_x) {\texttt{sim\_QS\_x.m}}; \\
-            & &
-        \node[block] (ba) {\texttt{body\_ attitude.m}}; \\
-            & &
-        \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
-    };
-    \tikzstyle{every path}=[line]
-    \path (t) -- (wk);
-    \path (t) |- (ba);
-    \path (t) |- (aa);
-    \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
-    \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
-    \path (QS) -- node {\scriptsize$F_B$} (sim_x);
-    \path (ba) -| node[near start] {\scriptsize$R$} (sim_x);
-    \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
-    \path (sim_x) -- (output);
-\end{tikzpicture}
-\end{itemize}
+% \subsection{Open-Source Software Package}
+% 
+% A software package for the proposed quasi-state dynamic model has been developed in Matlab, and it is shared as an open-source library at \href{https://github.com/fdcl-gwu/FWUAV}{\texttt{https://github.com/fdcl-gwu/FWUAV}}.
+% 
+% This is composed of the following components. 
+% 
+% \begin{itemize}
+%     \item Morphological parameters of Monarch butterfly are defied at \texttt{morp\_MONARCH.m}
+%     \item The raw data from VICON are processed by the following three files under \texttt{/exp\_data}.
+% 
+% \begin{tikzpicture}[auto]
+%     \tikzstyle{block} = [text width=7em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+%     \tikzstyle{line} = [draw, -latex'];
+%     \matrix[column sep=10mm, row sep=4mm]
+%     {
+%         \node[block] (VICON) {\texttt{VICON DATA.xls}}; & 
+%             \node[block] (load) {\texttt{load\_VICON\_data.m}}; & 
+%                 \node[block] (fit) {\texttt{fit\_VICON\_data.m}}; & 
+%                     \node[block] (ani) {\texttt{ani\_VICON\_data.m}}; \\
+%     };
+%     \tikzstyle{every path}=[line]
+%     \path (VICON) -- (load);
+%     \path (load) -- (fit);
+%     \path (fit) -- (ani);
+% \end{tikzpicture}
+% 
+%     \item For given torque at the wing and the abdomen, the complete dynamics \eqref{eqn:EL} are simulated as follows. 
+% 
+% \begin{tikzpicture}[auto]
+%     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+%     \tikzstyle{line} = [draw, -latex'];
+%     \matrix[column sep=14mm, row sep=4mm]
+%     {
+%             \node[block,text width=1em] (t) {$t$}; &
+%         \node[block] (tau) {control torque}; & 
+%             \node[block] (sim) {\texttt{sim\_QS\_all.m}}; &
+%         \node[block, text width=6.5em] (output) {$(x,R,Q_R,Q_L,Q_A)$}; \\
+%             & & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; \\
+%             %& & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}};\\
+%     };
+%     \tikzstyle{every path}=[line]
+%     \path (t) -- (tau);
+%     \path (tau) -- node {\scriptsize $\tau_R,\tau_L,\tau_A$} (sim);
+%     \path (sim) -- (output);
+%     \path (output) |- (QS);
+%     \path (QS) -- node {\scriptsize $F_B$} (sim);
+% \end{tikzpicture}
+% 
+%     \item For given wing Euler angles and the abdomen attitude, the position and the attitude dynamics of the thorax, namely \eqref{eqn:EL_xR} are simulated as follows.
+% 
+% \begin{tikzpicture}[auto]
+%     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+%     \tikzstyle{line} = [draw, -latex'];
+%     \matrix[column sep=12mm, row sep=3mm]
+%     {
+%         & & & & 
+%         \node[block, text width=6.5em] (output) {$(x,R),(\tau_R,\tau_L,\tau_A)$}; \\
+%         \node[block,text width=1em] (t) at (0,0) {$t$}; &
+%         \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
+%         \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
+%             \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
+%         \node[block] (sim_x) {\texttt{sim\_QS\_xR.m}}; \\
+%             & &
+%         \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
+%     };
+%     \tikzstyle{every path}=[line]
+%     \path (t) -- (wk);
+%     \path (t) |- (aa);
+%     \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
+%     \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
+%     \path (QS) -- node {\scriptsize$F_B$} (sim_x);
+%     \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
+%     \path (sim_x) -- (output);
+% \end{tikzpicture}
+% 
+%     \item For given wing Euler angles, the thorax attitude, and the abdomen attitude, the position dynamics \eqref{eqn:mx_ddot} are simulated as follows.
+% 
+% \begin{tikzpicture}[auto]
+%     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+%     \tikzstyle{line} = [draw, -latex'];
+%     \matrix[column sep=12mm, row sep=3mm]
+%     {
+%         & & & & 
+%         \node[block, text width=6.5em] (output) {$x,(\tau_R,\tau_L,\tau_A)$}; \\
+%         \node[block,text width=1em] (t) at (0,0) {$t$}; &
+%         \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
+%         \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
+%             \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
+%         \node[block] (sim_x) {\texttt{sim\_QS\_x.m}}; \\
+%             & &
+%         \node[block] (ba) {\texttt{body\_ attitude.m}}; \\
+%             & &
+%         \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
+%     };
+%     \tikzstyle{every path}=[line]
+%     \path (t) -- (wk);
+%     \path (t) |- (ba);
+%     \path (t) |- (aa);
+%     \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
+%     \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
+%     \path (QS) -- node {\scriptsize$F_B$} (sim_x);
+%     \path (ba) -| node[near start] {\scriptsize$R$} (sim_x);
+%     \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
+%     \path (sim_x) -- (output);
+% \end{tikzpicture}
+% \end{itemize}
 
 
 
