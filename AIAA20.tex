@@ -557,11 +557,11 @@ And the corresponding normalized radius of the $k$-th moment of virtual mass is
 \end{align}
 \nomenclature{${\tilde r_k(v) \in\Re}$}{non-dimensional radius of the $k$-th moment of wing volume (this is equivalent to $\hat r_k(v)$, or (16) of ~\cite{ellington1984aerodynamics})}
 
-Later, we need to compute the following quantity:
-\begin{align}
-    \int_0^l r c^2(r) dr & = l^2 \bar c^2 \int_0^1 \tilde r \tilde c^2 d\tilde r = l^2 \bar c^2 \tilde v \tilde r_1(v),\label{eqn:int_rc2dr} \\
-    \int_0^l r^2 c^2(r) dr & = l^3 \bar c^2 \int_0^1 \tilde r^2 \tilde c^2 d\tilde r = l^2 \bar c^2 \tilde v \tilde r_2^2(v).\label{eqn:int_r2c2dr} 
-\end{align}
+%Later, we need to compute the following quantity:
+%\begin{align}
+    %\int_0^l r c^2(r) dr & = l^2 \bar c^2 \int_0^1 \tilde r \tilde c^2 d\tilde r = l^2 \bar c^2 \tilde v \tilde r_1(v),\label{eqn:int_rc2dr} \\
+    %\int_0^l r^2 c^2(r) dr & = l^3 \bar c^2 \int_0^1 \tilde r^2 \tilde c^2 d\tilde r = l^2 \bar c^2 \tilde v \tilde r_2^2(v).\label{eqn:int_r2c2dr} 
+%\end{align}
 
 \subsection{Blade-Element Theory}
 
@@ -781,110 +781,110 @@ The lift and the drag also generate the moment about the wing root as
 \end{align}
 \nomenclature{$M_L\in\Re^3$}{moment about the wing root caused by the lift and the drag of the left wing, resolved in $\mathcal{F}_L$}
 
-\subsection{Approximate Translational Forces for Higher Flapping Frequency}
+%\subsection{Approximate Translational Forces for Higher Flapping Frequency}
 
-While it is not suitable for butterfly, here we present an explicit expression for a special case when the linear velocity and the angular velocity of the body and the wind velocity are small compared with the flapping frequency. i.e., $\|\dot x\|, \|\mu_R\|\|\Omega\|, \|v_{\mathrm{wind}}\| \ll l\|\Omega_R\|$.  
+%While it is not suitable for butterfly, here we present an explicit expression for a special case when the linear velocity and the angular velocity of the body and the wind velocity are small compared with the flapping frequency. i.e., $\|\dot x\|, \|\mu_R\|\|\Omega\|, \|v_{\mathrm{wind}}\| \ll l\|\Omega_R\|$.  
 
-\paragraph{Right Wing}
+%\paragraph{Right Wing}
 
-Under these assumptions, the first part of \eqref{eqn:Ur} vanishes so that the velocity reduces to 
-\begin{align*}
-    U_R(r) & = r \Omega_R \times e_2,
-%    \\
-         %& = r  
-    %\begin{bmatrix} 
-        %\cos\psi_R\cos\theta_R & 0 & \sin\theta_R \\
-        %\sin\psi_R & 1 & 0 \\
-        %\cos\psi_R\sin\theta_R& 0& -\cos\theta_R
-    %\end{bmatrix}
-    %\begin{bmatrix}
-        %\dot\phi_R \\ \dot\theta_R \\ \dot\psi_R
-    %\end{bmatrix} \times e_2 \\
-         %& = r  
-    %\begin{bmatrix} 
-        %-\cos\psi_R\sin\theta_R&  \cos\theta_R\\
-        %0 & 0 \\
-        %\cos\psi_R\cos\theta_R & \sin\theta_R \\
-    %\end{bmatrix}
-    %\begin{bmatrix}
-        %\dot\phi_R \\  \dot\psi_R
-%    \end{bmatrix}.
-\end{align*}
-which is directly proportional to $r$. 
-In~\eqref{eqn:alpha}, this eliminates the dependency of $\alpha$  on $r$ as follows.
-\begin{align*}
-    \alpha & = \cos^{-1} (\frac{ |e_1^T (\Omega_R \times e_2)|}{\|\Omega_R\times e_2\|}) = \cos^{-1} (\frac{ |e_3^T \Omega_R |}{\|\Omega_R \times e_2\|} ).
-\end{align*}
-In other words, the angle of attack is identical for all the infinitesimal chord in the right wing. 
-Also, from \eqref{eqn:dLR},
-\begin{align}
-    dL_R(r) %& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_1^T (\Omega_R\times e_2) e_3^T (\Omega_R\times e_2) ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
-            %& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (-e_3^T \Omega_R e_1^T \Omega_R ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
-            & = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\|  r^2 dr\nonumber.
-\end{align}
-Consequently, the lift of the right wing is given by
-\begin{align*}
-    L_R & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\| \int_{0}^{l} c(r)  r^2 dr,
-\end{align*}
-and using \eqref{eqn:tilde_r_k}
-\begin{align*}
-    L_R & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\| l^2 \tilde r_2^2 S,
-\end{align*}
-which can be evaluated by $\Omega_R$ without integration over the wing span. 
+%Under these assumptions, the first part of \eqref{eqn:Ur} vanishes so that the velocity reduces to 
+%\begin{align*}
+    %U_R(r) & = r \Omega_R \times e_2,
+%%    \\
+         %%& = r  
+    %%\begin{bmatrix} 
+        %%\cos\psi_R\cos\theta_R & 0 & \sin\theta_R \\
+        %%\sin\psi_R & 1 & 0 \\
+        %%\cos\psi_R\sin\theta_R& 0& -\cos\theta_R
+    %%\end{bmatrix}
+    %%\begin{bmatrix}
+        %%\dot\phi_R \\ \dot\theta_R \\ \dot\psi_R
+    %%\end{bmatrix} \times e_2 \\
+         %%& = r  
+    %%\begin{bmatrix} 
+        %%-\cos\psi_R\sin\theta_R&  \cos\theta_R\\
+        %%0 & 0 \\
+        %%\cos\psi_R\cos\theta_R & \sin\theta_R \\
+    %%\end{bmatrix}
+    %%\begin{bmatrix}
+        %%\dot\phi_R \\  \dot\psi_R
+%%    \end{bmatrix}.
+%\end{align*}
+%which is directly proportional to $r$. 
+%In~\eqref{eqn:alpha}, this eliminates the dependency of $\alpha$  on $r$ as follows.
+%\begin{align*}
+    %\alpha & = \cos^{-1} (\frac{ |e_1^T (\Omega_R \times e_2)|}{\|\Omega_R\times e_2\|}) = \cos^{-1} (\frac{ |e_3^T \Omega_R |}{\|\Omega_R \times e_2\|} ).
+%\end{align*}
+%In other words, the angle of attack is identical for all the infinitesimal chord in the right wing. 
+%Also, from \eqref{eqn:dLR},
+%\begin{align}
+    %dL_R(r) %& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_1^T (\Omega_R\times e_2) e_3^T (\Omega_R\times e_2) ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
+            %%& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (-e_3^T \Omega_R e_1^T \Omega_R ) (e_2\times (\Omega_R\times e_2))\|\Omega_R\times e_2\| r^2 dr\nonumber \\
+            %& = \frac{1}{2}\rho  C_L(\alpha) c(r) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\|  r^2 dr\nonumber.
+%\end{align}
+%Consequently, the lift of the right wing is given by
+%\begin{align*}
+    %L_R & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\| \int_{0}^{l} c(r)  r^2 dr,
+%\end{align*}
+%and using \eqref{eqn:tilde_r_k}
+%\begin{align*}
+    %L_R & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_3^T \Omega_R e_1^T \Omega_R ) \hat e_2^2 \Omega_R \|\Omega_R\times e_2\| l^2 \tilde r_2^2 S,
+%\end{align*}
+%which can be evaluated by $\Omega_R$ without integration over the wing span. 
 
-Or, equivalently, define the velocity of the chord at $r=\tilde r_2 l$ as 
-\begin{align}
-    U_R = U_R(\tilde r_2 l) = \tilde r_2 l \Omega_R \times e_2. \label{eqn:U_R}
-\end{align}
-\nomenclature{$U_R\in\Re^3$}{the velocity of the chord at $r=\tilde r_2 l$ of the right wing\nomrefeq}
-The angle of attack can be rewritten as
-\begin{align}
-    \alpha_R & = \cos^{-1} (\frac{ |e_1^T U_R|}{\|U_R\|}) = \sin^{-1} (\frac{ |e_3^T U_R|}{\|U_R\|}). \label{eqn:alpha_R}
-\end{align}
-Thus, the lift of the right wing resolved in $\mathcal{F}_R$ is given by
-\begin{align}
-    L_R & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_1^T U_R e_3^T U_R ) \hat e_2 U_R \|U_R\| S,
-\end{align}
-Similarly, the drag is given by
-\begin{align}
-    D_R = - \frac{1}{2}\rho  C_D(\alpha)  \|U_R \| U_R  S.
-\end{align}
-In short, for the special case of small body velocities, the lift and the drag vector of the right wing resolved in $\mathcal{F}_R$ are given by \eqref{eqn:U_R}--\eqref{eqn:alpha_R}.
+%Or, equivalently, define the velocity of the chord at $r=\tilde r_2 l$ as 
+%\begin{align}
+    %U_R = U_R(\tilde r_2 l) = \tilde r_2 l \Omega_R \times e_2. \label{eqn:U_R}
+%\end{align}
+%\nomenclature{$U_R\in\Re^3$}{the velocity of the chord at $r=\tilde r_2 l$ of the right wing\nomrefeq}
+%The angle of attack can be rewritten as
+%\begin{align}
+    %\alpha_R & = \cos^{-1} (\frac{ |e_1^T U_R|}{\|U_R\|}) = \sin^{-1} (\frac{ |e_3^T U_R|}{\|U_R\|}). \label{eqn:alpha_R}
+%\end{align}
+%Thus, the lift of the right wing resolved in $\mathcal{F}_R$ is given by
+%\begin{align}
+    %L_R & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_1^T U_R e_3^T U_R ) \hat e_2 U_R \|U_R\| S,
+%\end{align}
+%Similarly, the drag is given by
+%\begin{align}
+    %D_R = - \frac{1}{2}\rho  C_D(\alpha)  \|U_R \| U_R  S.
+%\end{align}
+%In short, for the special case of small body velocities, the lift and the drag vector of the right wing resolved in $\mathcal{F}_R$ are given by \eqref{eqn:U_R}--\eqref{eqn:alpha_R}.
 
-Define $r_{cp}\in\Re$ such that the above moment is equivalent to the lift and the drag acting on $r_{cp}e_2$, i.e., 
-\[
-    r_{cp}e_2 \times \int (dL_R + dD_R) = \int re_2 \times (dL_R + dD_R).
-\]
-For the special case discussed above, one can show
-\begin{align}
-    r_{cp} & = \dfrac{ \int_{0}^l r^3 c(r) dr}{\int_0^l r^2 c(r) dr} = \frac{S_3}{S_2} = \frac{Sl^3 \tilde r_3^3}{S l^2 \tilde r_2^2} = \frac{\tilde r_3^3}{\tilde r_2^2} l.
-\end{align}
-\nomenclature{$r_{cp}\in\Re$}{distance from the wing root to the aerodynamic center of the lift and the drag\nomrefeq}
-Therefore, the span-wise location of the center of pressure of the right wing is given by $r_{cp}e_2$, and the resulting moment about the wing root is
-\begin{align}
-    M_R = r_{cp} e_2 \times (L_R + D_R),
-\end{align}
-which is resolved in $\mathcal{F}_R$.
+%Define $r_{cp}\in\Re$ such that the above moment is equivalent to the lift and the drag acting on $r_{cp}e_2$, i.e., 
+%\[
+    %r_{cp}e_2 \times \int (dL_R + dD_R) = \int re_2 \times (dL_R + dD_R).
+%\]
+%For the special case discussed above, one can show
+%\begin{align}
+    %r_{cp} & = \dfrac{ \int_{0}^l r^3 c(r) dr}{\int_0^l r^2 c(r) dr} = \frac{S_3}{S_2} = \frac{Sl^3 \tilde r_3^3}{S l^2 \tilde r_2^2} = \frac{\tilde r_3^3}{\tilde r_2^2} l.
+%\end{align}
+%\nomenclature{$r_{cp}\in\Re$}{distance from the wing root to the aerodynamic center of the lift and the drag\nomrefeq}
+%Therefore, the span-wise location of the center of pressure of the right wing is given by $r_{cp}e_2$, and the resulting moment about the wing root is
+%\begin{align}
+    %M_R = r_{cp} e_2 \times (L_R + D_R),
+%\end{align}
+%which is resolved in $\mathcal{F}_R$.
 
-\paragraph{Left Wing}
+%\paragraph{Left Wing}
 
-For the left wing, define the velocity at the chord $r =\tilde r_2l$ be
-\begin{align}
-    U_L = U_L(\tilde r_2 l) = -\tilde r_2 \Omega_2 \times e_2.
-\end{align}
-\nomenclature{$U_L\in\Re^3$}{the velocity of the chord at $r=\tilde r_2 l$ of the left wing\nomrefeq}
-The angle of attack is given by
-\begin{align}
-    \alpha_L & = \cos^{-1} (\frac{ |e_1^T U_L|}{\|U_L\|}) = \sin^{-1} (\frac{ |e_3^T U_L|}{\|U_L\|}). \label{eqn:alpha_L}
-\end{align}
-The translational force and the moment for the left wing are 
-\begin{align}
-    L_L & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_1^T U_L e_3^T U_L ) \hat e_2 U_L \|U_L\| S,\\
-    D_L & = - \frac{1}{2}\rho  C_D(\alpha)  \|U_L \| U_L  S,\\
-    M_L & = - r_{cp} e_2 \times (L_L + D_L),\label{eqn:M_L}
-\end{align}
-which are resolved in $\mathcal{F}_L$. 
-All of these expressions are consistent with the right wing, except the negative sign in \eqref{eqn:M_L}. 
+%For the left wing, define the velocity at the chord $r =\tilde r_2l$ be
+%\begin{align}
+    %U_L = U_L(\tilde r_2 l) = -\tilde r_2 \Omega_2 \times e_2.
+%\end{align}
+%\nomenclature{$U_L\in\Re^3$}{the velocity of the chord at $r=\tilde r_2 l$ of the left wing\nomrefeq}
+%The angle of attack is given by
+%\begin{align}
+    %\alpha_L & = \cos^{-1} (\frac{ |e_1^T U_L|}{\|U_L\|}) = \sin^{-1} (\frac{ |e_3^T U_L|}{\|U_L\|}). \label{eqn:alpha_L}
+%\end{align}
+%The translational force and the moment for the left wing are 
+%\begin{align}
+    %L_L & = \frac{1}{2}\rho  C_L(\alpha) \mathrm{sgn} (e_1^T U_L e_3^T U_L ) \hat e_2 U_L \|U_L\| S,\\
+    %D_L & = - \frac{1}{2}\rho  C_D(\alpha)  \|U_L \| U_L  S,\\
+    %M_L & = - r_{cp} e_2 \times (L_L + D_L),\label{eqn:M_L}
+%\end{align}
+%which are resolved in $\mathcal{F}_L$. 
+%All of these expressions are consistent with the right wing, except the negative sign in \eqref{eqn:M_L}. 
 
 \subsection{Rotational Force}
 
@@ -1021,41 +1021,41 @@ For the left wing, the chord is located at $-r e_2$ in $\mathcal{F}_L$, and cons
 \]
 \nomenclature{$M_\rot\in\Re^3$}{moment about the wing root due to the rotational force, resolved in the wing fixed frame}
 
-\subsection{Approximate Rotational Force for Higher Flapping Frequency}
+%\subsection{Approximate Rotational Force for Higher Flapping Frequency}
 
-\paragraph{Right Wing}
+%\paragraph{Right Wing}
 
-Similar with the approximate translational forces, we present an explicit expression for the rotational forces when the flapping frequency is sufficiently high. 
-As discussed above under the given assumption, the angle of attack and its time-derivative do not vary span-wise.
-Thus,
-\begin{align*}
-    F_{\rot_R} & = \rho C_\rot  \|\Omega_R \times e_2 \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 \int_0^l r c^2(r) dr,
-\end{align*}
-Substituting \eqref{eqn:int_rc2dr},
-\begin{align*}
-    F_{\rot_R} & = \rho C_\rot  \|\Omega_R \times e_2 \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 l^2 \bar c^2 \tilde v \tilde r_1(v).
-\end{align*}
-Substituting \eqref{eqn:U_R}, we obtain the rotational force in terms of $U_R$ as 
-\begin{align}
-    F_{\rot_R} & = \rho C_\rot  \|U_R \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 l \bar c^2 \frac{\tilde v \tilde r_1(v)}{\tilde r_2}. \label{eqn:F_rot}
-\end{align}
+%Similar with the approximate translational forces, we present an explicit expression for the rotational forces when the flapping frequency is sufficiently high. 
+%As discussed above under the given assumption, the angle of attack and its time-derivative do not vary span-wise.
+%Thus,
+%\begin{align*}
+    %F_{\rot_R} & = \rho C_\rot  \|\Omega_R \times e_2 \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 \int_0^l r c^2(r) dr,
+%\end{align*}
+%Substituting \eqref{eqn:int_rc2dr},
+%\begin{align*}
+    %F_{\rot_R} & = \rho C_\rot  \|\Omega_R \times e_2 \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 l^2 \bar c^2 \tilde v \tilde r_1(v).
+%\end{align*}
+%Substituting \eqref{eqn:U_R}, we obtain the rotational force in terms of $U_R$ as 
+%\begin{align}
+    %F_{\rot_R} & = \rho C_\rot  \|U_R \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 l \bar c^2 \frac{\tilde v \tilde r_1(v)}{\tilde r_2}. \label{eqn:F_rot}
+%\end{align}
 
-Define $r_\rot\in\Re$ such that the moment about the wing root generated by the rotational force is written as
-\begin{equation}
-    M_{\rot_R} = r_\rot e_2 \times F_{\rot_R}.
-\end{equation}
-Using \eqref{eqn:int_rc2dr} and \eqref{eqn:int_r2c2dr}, one can show
-\begin{align}
-    r_\rot & = \frac{\int_0^l r^2 c^2(r) dr}{\int_0^l r c^2(r) dr} = \frac{l\tilde r_2^2(v)}{\tilde r_1(v)}.
-\end{align}
+%Define $r_\rot\in\Re$ such that the moment about the wing root generated by the rotational force is written as
+%\begin{equation}
+    %M_{\rot_R} = r_\rot e_2 \times F_{\rot_R}.
+%\end{equation}
+%Using \eqref{eqn:int_rc2dr} and \eqref{eqn:int_r2c2dr}, one can show
+%\begin{align}
+    %r_\rot & = \frac{\int_0^l r^2 c^2(r) dr}{\int_0^l r c^2(r) dr} = \frac{l\tilde r_2^2(v)}{\tilde r_1(v)}.
+%\end{align}
 
-\paragraph{Left Wing}
+%\paragraph{Left Wing}
 
-For the left wing,
-\begin{align}
-    F_{\rot_L} & = \rho C_\rot  \|U_L \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 l \bar c^2 \frac{\tilde v \tilde r_1(v)}{\tilde r_2}, \label{eqn:F_rot_L}\\
-    M_{\rot_L} &  = -r_\rot e_2 \times F_{\rot_L}.
-\end{align}
+%For the left wing,
+%\begin{align}
+    %F_{\rot_L} & = \rho C_\rot  \|U_L \| |\dot\alpha(t)|\; \mathrm{sgn}_\rot(t)  e_3 l \bar c^2 \frac{\tilde v \tilde r_1(v)}{\tilde r_2}, \label{eqn:F_rot_L}\\
+    %M_{\rot_L} &  = -r_\rot e_2 \times F_{\rot_L}.
+%\end{align}
 
 \section{Dynamics of Flapping Wing Aerial Vehicle for Butterfly}
 
@@ -1293,7 +1293,7 @@ The derivatives of the inertia are expressed by the following matrix $\mathbf{K}
 \end{align}
 The co-adjoint operator corresponds to the following matrix,
 \begin{align}
-    \mathrm{ad}^*_\nu = \mathrm{diag}[0_{3\times 3}, -\hat\Omega, -\hat\Omega_R, -\hat\Omega_L, - \hat\Omega_A].
+    \mathrm{ad}^*_\xi = \mathrm{diag}[0_{3\times 3}, -\hat\Omega, -\hat\Omega_R, -\hat\Omega_L, - \hat\Omega_A].
 \end{align}
 The Euler--Lagrange equations are given according to \eqref{eqn:EL_G} as
 \begin{gather}
@@ -1645,7 +1645,7 @@ This proposed model is compared with the data obtained by a live Monarch butterf
 It is shown that the abdomen undulation increases the flight velocity, and the flapping of the Monarch butterfly yields an asymptotically stable periodic orbit. 
 For future study, the effects of the abdomen undulation should be quantitatively evaluated to compare its undulation, and the stability should be rigorously analyzed. 
 
-\bibliographystyle{IEEEtran}
+%\bibliographystyle{IEEEtran}
 %\bibliography{FWUAV,/Users/tylee/Documents/BibMaster17.bib,/Users/tylee/Documents/tylee.bib,BibCK}
 \bibliography{FWUAV,BibMaster17,tylee,BibCK}
 
@@ -1679,112 +1679,112 @@ For future study, the effects of the abdomen undulation should be quantitatively
 \end{align}
 }
 
-% \subsection{Open-Source Software Package}
-% 
-% A software package for the proposed quasi-state dynamic model has been developed in Matlab, and it is shared as an open-source library at \href{https://github.com/fdcl-gwu/FWUAV}{\texttt{https://github.com/fdcl-gwu/FWUAV}}.
-% 
-% This is composed of the following components. 
-% 
-% \begin{itemize}
-%     \item Morphological parameters of Monarch butterfly are defied at \texttt{morp\_MONARCH.m}
-%     \item The raw data from VICON are processed by the following three files under \texttt{/exp\_data}.
-% 
-% \begin{tikzpicture}[auto]
-%     \tikzstyle{block} = [text width=7em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-%     \tikzstyle{line} = [draw, -latex'];
-%     \matrix[column sep=10mm, row sep=4mm]
-%     {
-%         \node[block] (VICON) {\texttt{VICON DATA.xls}}; & 
-%             \node[block] (load) {\texttt{load\_VICON\_data.m}}; & 
-%                 \node[block] (fit) {\texttt{fit\_VICON\_data.m}}; & 
-%                     \node[block] (ani) {\texttt{ani\_VICON\_data.m}}; \\
-%     };
-%     \tikzstyle{every path}=[line]
-%     \path (VICON) -- (load);
-%     \path (load) -- (fit);
-%     \path (fit) -- (ani);
-% \end{tikzpicture}
-% 
-%     \item For given torque at the wing and the abdomen, the complete dynamics \eqref{eqn:EL} are simulated as follows. 
-% 
-% \begin{tikzpicture}[auto]
-%     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-%     \tikzstyle{line} = [draw, -latex'];
-%     \matrix[column sep=14mm, row sep=4mm]
-%     {
-%             \node[block,text width=1em] (t) {$t$}; &
-%         \node[block] (tau) {control torque}; & 
-%             \node[block] (sim) {\texttt{sim\_QS\_all.m}}; &
-%         \node[block, text width=6.5em] (output) {$(x,R,Q_R,Q_L,Q_A)$}; \\
-%             & & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; \\
-%             %& & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}};\\
-%     };
-%     \tikzstyle{every path}=[line]
-%     \path (t) -- (tau);
-%     \path (tau) -- node {\scriptsize $\tau_R,\tau_L,\tau_A$} (sim);
-%     \path (sim) -- (output);
-%     \path (output) |- (QS);
-%     \path (QS) -- node {\scriptsize $F_B$} (sim);
-% \end{tikzpicture}
-% 
-%     \item For given wing Euler angles and the abdomen attitude, the position and the attitude dynamics of the thorax, namely \eqref{eqn:EL_xR} are simulated as follows.
-% 
-% \begin{tikzpicture}[auto]
-%     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-%     \tikzstyle{line} = [draw, -latex'];
-%     \matrix[column sep=12mm, row sep=3mm]
-%     {
-%         & & & & 
-%         \node[block, text width=6.5em] (output) {$(x,R),(\tau_R,\tau_L,\tau_A)$}; \\
-%         \node[block,text width=1em] (t) at (0,0) {$t$}; &
-%         \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
-%         \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
-%             \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
-%         \node[block] (sim_x) {\texttt{sim\_QS\_xR.m}}; \\
-%             & &
-%         \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
-%     };
-%     \tikzstyle{every path}=[line]
-%     \path (t) -- (wk);
-%     \path (t) |- (aa);
-%     \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
-%     \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
-%     \path (QS) -- node {\scriptsize$F_B$} (sim_x);
-%     \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
-%     \path (sim_x) -- (output);
-% \end{tikzpicture}
-% 
-%     \item For given wing Euler angles, the thorax attitude, and the abdomen attitude, the position dynamics \eqref{eqn:mx_ddot} are simulated as follows.
-% 
-% \begin{tikzpicture}[auto]
-%     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
-%     \tikzstyle{line} = [draw, -latex'];
-%     \matrix[column sep=12mm, row sep=3mm]
-%     {
-%         & & & & 
-%         \node[block, text width=6.5em] (output) {$x,(\tau_R,\tau_L,\tau_A)$}; \\
-%         \node[block,text width=1em] (t) at (0,0) {$t$}; &
-%         \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
-%         \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
-%             \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
-%         \node[block] (sim_x) {\texttt{sim\_QS\_x.m}}; \\
-%             & &
-%         \node[block] (ba) {\texttt{body\_ attitude.m}}; \\
-%             & &
-%         \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
-%     };
-%     \tikzstyle{every path}=[line]
-%     \path (t) -- (wk);
-%     \path (t) |- (ba);
-%     \path (t) |- (aa);
-%     \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
-%     \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
-%     \path (QS) -- node {\scriptsize$F_B$} (sim_x);
-%     \path (ba) -| node[near start] {\scriptsize$R$} (sim_x);
-%     \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
-%     \path (sim_x) -- (output);
-% \end{tikzpicture}
-% \end{itemize}
+ \subsection{Open-Source Software Package}
+ 
+ A software package for the proposed quasi-state dynamic model has been developed in Matlab, and it is shared as an open-source library at \href{https://github.com/fdcl-gwu/FWUAV}{\texttt{https://github.com/fdcl-gwu/FWUAV}}.
+ 
+ This is composed of the following components. 
+ 
+ \begin{itemize}
+     \item Morphological parameters of Monarch butterfly are defied at \texttt{morp\_MONARCH.m}
+     \item The raw data from VICON are processed by the following three files under \texttt{/exp\_data}.
+ 
+ \begin{tikzpicture}[auto]
+     \tikzstyle{block} = [text width=7em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+     \tikzstyle{line} = [draw, -latex'];
+     \matrix[column sep=10mm, row sep=4mm]
+     {
+         \node[block] (VICON) {\texttt{VICON DATA.xls}}; & 
+             \node[block] (load) {\texttt{load\_VICON\_data.m}}; & 
+                 \node[block] (fit) {\texttt{fit\_VICON\_data.m}}; & 
+                     \node[block] (ani) {\texttt{ani\_VICON\_data.m}}; \\
+     };
+     \tikzstyle{every path}=[line]
+     \path (VICON) -- (load);
+     \path (load) -- (fit);
+     \path (fit) -- (ani);
+ \end{tikzpicture}
+ 
+     \item For given torque at the wing and the abdomen, the complete dynamics \eqref{eqn:EL} are simulated as follows. 
+ 
+ \begin{tikzpicture}[auto]
+     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+     \tikzstyle{line} = [draw, -latex'];
+     \matrix[column sep=14mm, row sep=4mm]
+     {
+             \node[block,text width=1em] (t) {$t$}; &
+         \node[block] (tau) {control torque}; & 
+             \node[block] (sim) {\texttt{sim\_QS\_all.m}}; &
+         \node[block, text width=6.5em] (output) {$(x,R,Q_R,Q_L,Q_A)$}; \\
+             & & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; \\
+             %& & \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}};\\
+     };
+     \tikzstyle{every path}=[line]
+     \path (t) -- (tau);
+     \path (tau) -- node {\scriptsize $\tau_R,\tau_L,\tau_A$} (sim);
+     \path (sim) -- (output);
+     \path (output) |- (QS);
+     \path (QS) -- node {\scriptsize $F_B$} (sim);
+ \end{tikzpicture}
+ 
+     \item For given wing Euler angles and the abdomen attitude, the position and the attitude dynamics of the thorax, namely \eqref{eqn:EL_xR} are simulated as follows.
+ 
+ \begin{tikzpicture}[auto]
+     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+     \tikzstyle{line} = [draw, -latex'];
+     \matrix[column sep=12mm, row sep=3mm]
+     {
+         & & & & 
+         \node[block, text width=6.5em] (output) {$(x,R),(\tau_R,\tau_L,\tau_A)$}; \\
+         \node[block,text width=1em] (t) at (0,0) {$t$}; &
+         \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
+         \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
+             \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
+         \node[block] (sim_x) {\texttt{sim\_QS\_xR.m}}; \\
+             & &
+         \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
+     };
+     \tikzstyle{every path}=[line]
+     \path (t) -- (wk);
+     \path (t) |- (aa);
+     \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
+     \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
+     \path (QS) -- node {\scriptsize$F_B$} (sim_x);
+     \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
+     \path (sim_x) -- (output);
+ \end{tikzpicture}
+ 
+     \item For given wing Euler angles, the thorax attitude, and the abdomen attitude, the position dynamics \eqref{eqn:mx_ddot} are simulated as follows.
+ 
+ \begin{tikzpicture}[auto]
+     \tikzstyle{block} = [text width=6em, draw, rectangle, text centered, rounded corners=1mm, minimum height=1.5em, inner sep= 4pt, style={font=\scriptsize}];
+     \tikzstyle{line} = [draw, -latex'];
+     \matrix[column sep=12mm, row sep=3mm]
+     {
+         & & & & 
+         \node[block, text width=6.5em] (output) {$x,(\tau_R,\tau_L,\tau_A)$}; \\
+         \node[block,text width=1em] (t) at (0,0) {$t$}; &
+         \node[block] (wk) {\texttt{wing\_ kinematics.m}}; & 
+         \node[block] (wa) {\texttt{wing\_ attitude.m}}; &
+             \node[block] (QS) {\texttt{wing\_QS\_ aerodynamics.m}}; &
+         \node[block] (sim_x) {\texttt{sim\_QS\_x.m}}; \\
+             & &
+         \node[block] (ba) {\texttt{body\_ attitude.m}}; \\
+             & &
+         \node[block] (aa) {\texttt{abdomen\_ attitude.m}}; \\
+     };
+     \tikzstyle{every path}=[line]
+     \path (t) -- (wk);
+     \path (t) |- (ba);
+     \path (t) |- (aa);
+     \path (wk) -- node {\scriptsize $\phi,\theta,\psi$} (wa);
+     \path (wa) -- node {\scriptsize$Q_R,Q_L$} (QS);
+     \path (QS) -- node {\scriptsize$F_B$} (sim_x);
+     \path (ba) -| node[near start] {\scriptsize$R$} (sim_x);
+     \path (aa) -| node[near start] {\scriptsize $Q_A$} (sim_x);
+     \path (sim_x) -- (output);
+ \end{tikzpicture}
+ \end{itemize}
 
 
 
